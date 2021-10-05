@@ -26,4 +26,7 @@ clean:
 fclean:		clean
 			$(RM) $(NAME)
 
+run:
+			$(CC) main.c
+
 re:			fclean all
