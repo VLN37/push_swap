@@ -1,5 +1,5 @@
 LIBFTPATH	= ./libft
-LIBFT		= $(LIBFT_PATH)/libft.a
+LIBFT		= $(LIBFTPATH)/libft.a
 
 SRCS		= push_swap.c
 
@@ -11,6 +11,7 @@ NAME		= push_swap
 CC			= clang
 RM			= rm -f
 CFLAGS		= -Wall -Wextra -Werror
+LINKS		= -I $(LIBFTPATH) -L $(LIBFTPATH) -lft
 
 .c.o:
 			$(CC) $(CFLAGS) -c $< -o $(<.c=.o)
@@ -22,11 +23,14 @@ $(NAME):
 
 clean:
 			$(RM) $(OBJ)
+			make -C $(LIBFTPATH) clean
 
 fclean:		clean
+			make -C $(LIBFTPATH) fclean
 			$(RM) $(NAME)
 
 run:
-			$(CC) main.c
+			make -C $(LIBFTPATH) all
+			$(CC) main.c $(LIBFT) -o $(NAME) $(LINKS) && ./$(NAME) 1 -2
 
 re:			fclean all
