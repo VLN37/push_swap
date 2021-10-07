@@ -1,10 +1,11 @@
 LIBFTPATH	= ./libft
 LIBFT		= $(LIBFTPATH)/libft.a
 
-SRCS		= push_swap.c
+SRCS		= ps_parser.c \
+              ps_validation.c \
+              push_swap.c
 
 #SOURCES		= $(addprefix $(SOURCES_DIR/, $(SRCS)))
-
 OBJ			= $(SRCS:.c=.o)
 
 NAME		= push_swap
@@ -13,13 +14,15 @@ RM			= rm -f
 CFLAGS		= -Wall -Wextra -Werror
 LINKS		= -I $(LIBFTPATH) -L $(LIBFTPATH) -lft
 
-.c.o:
-			$(CC) $(CFLAGS) -c $< -o $(<.c=.o)
 
 all:		$(NAME)
 
-$(NAME):
-			$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+$(NAME):	$(OBJ)
+			make -C $(LIBFTPATH) all
+			$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LINKS)
+
+.c.o:
+			$(CC) -c $< -o $(<:.c=.o)
 
 clean:
 			$(RM) $(OBJ)
@@ -29,8 +32,10 @@ fclean:		clean
 			make -C $(LIBFTPATH) fclean
 			$(RM) $(NAME)
 
-run:
+run:		$(OBJ)
 			make -C $(LIBFTPATH) all
-			$(CC) main.c $(LIBFT) -o $(NAME) $(LINKS) && ./$(NAME) 1 -2
+			$(CC) $(OBJ) -o $(NAME) $(LINKS) && ./$(NAME) 1 -2
 
 re:			fclean all
+
+.PHONY:		all clean fclean re run libft libftpath

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ps_validation.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/05 13:06:48 by jofelipe         ###   ########.fr       */
+/*   Created: 2021/10/07 12:56:20 by jofelipe          #+#    #+#             */
+/*   Updated: 2021/10/07 13:18:49 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_isdigit_str(char *str)
+static int	ft_isdigit_str(char *str)
 {
 	int	i;
 
@@ -25,11 +25,11 @@ int	ft_isdigit_str(char *str)
 	return (1);
 }
 
-int	isargvdigits(int argc, char **argv)
+static int	isargvdigits(int argc, char **argv)
 {
 	int	i;
 
-	i = 2;
+	i = 1;
 
 	while (i < argc)
 	{
@@ -42,44 +42,28 @@ int	isargvdigits(int argc, char **argv)
 	return (1);
 }
 
-// int	isnegativevalid()
-
-// int	isargvint(int argc, char **argv)
-// {
-// 	int	i;
-// 	int	len;
-
-// 	i = 0;
-// 	len = ft_strlen(argv[i]);
-// 	if(*argv[i] == '-')
-// 	{
-// 		if (len > 11)
-// 			return (0);
-// 		if (len == 11)
-
-// 	}
-// }
-
-int	validation(int argc, char **argv)
+static int	isarrayint(long long *arr, int argc)
 {
-	if (!isargvdigits(argc, argv))
-		return (0);
+	int	i;
+
+	i = 0;
+	while(i < argc - 1)
+	{
+		if (arr[i] > 2147483647 || arr[i] < -2147483648)
+		{
+			ft_putstr_fd("Error\n", 2);
+			return (0);
+		}
+		++i;
+	}
 	return (1);
 }
 
-int	main(int argc, char **argv)
+int	validation(int argc, char **argv, long long *arr)
 {
-	long long	*stack1 = (long long*)malloc(sizeof(long long) * 11 + 1);
-	long long	*stack2 = (long long*)malloc(sizeof(long long) * 11 + 1);
-	if (!validation(argc, argv))
-		return (1);
-	long int	i = -1;
-	while (++i < 10)
-	{
-		stack1[i] = i;
-	}
-	stack1[i] = 2147483648;
-	i = -1;
-	while (++i < 11)
-		printf("%lld\n", stack1[i]);
+	if (!isargvdigits(argc, argv))
+		return (0);
+	if (!isarrayint(arr, argc))
+		return (0);
+	return (1);
 }

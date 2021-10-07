@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/07 12:58:08 by jofelipe         ###   ########.fr       */
+/*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
+/*   Updated: 2021/10/07 12:58:16 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# ifndef INT_MAX
-#  define INT_MAX 2147483647
-# endif
 
-# ifndef INT_MIN
-#  define INT_MIN -2147483648
-# endif
-# define STOP 2147483648
+int	main(int argc, char **argv)
+{
+	long long	*stack1 = (long long*)malloc(sizeof(long long) * 11 + 1);
+	long long	*stack2 = (long long*)malloc(sizeof(long long) * 11 + 1);
 
-#include "libft.h"
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
+	stack1 = argvtoint(argc, argv, stack1);
+	if (!validation(argc, argv, stack1))
+		return (1);
 
-int	validation(int argc, char **argv, long long *arr);
-long long *argvtoint(int argc, char **argv, long long *arr);
-
-#endif
+	int i = 0;
+	while (stack1[i] != STOP)
+		printf("%lld\n", stack1[i++]);
+}
