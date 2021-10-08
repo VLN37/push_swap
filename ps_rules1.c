@@ -6,13 +6,13 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 20:45:01 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/07 21:54:52 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/07 21:57:14 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	stoplen(int *stack)
+long long	stoplen(long long *stack)
 {
 	int	i;
 
@@ -24,21 +24,17 @@ int	stoplen(int *stack)
 
 void	push(long long *src, long long *dest)
 {
-	int	i;
-	int	j;
+	int	srclen;
+	int	destlen;
 
-	i = 0;
-	j = 0;
-	if (src[i] == STOP)
+	srclen = stoplen(src);
+	destlen = stoplen(dest);
+	if (src[0] == STOP)
 		return ;
-	while(dest[j] != STOP)
-		j++;
-	ft_memmove(&dest[1], dest, j * sizeof(long long));
+	ft_memmove(&dest[1], dest, destlen * sizeof(long long));
 	dest[0] = src[0];
-	while (src[i] != STOP)
-		i++;
-	ft_memmove(src, &src[1], (i - 1) * sizeof(long long));
-	src[i - 1] = STOP;
+	ft_memmove(src, &src[1], (srclen - 1) * sizeof(long long));
+	src[srclen - 1] = STOP;
 }
 
 void	swap(long long *stack)
