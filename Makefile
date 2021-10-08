@@ -2,9 +2,11 @@ LIBFTPATH	= ./libft
 LIBFT		= $(LIBFTPATH)/libft.a
 
 SRCS		= push_swap.c \
-              ps_parser.c \
-              ps_validation.c \
-              ps_utils.c
+			  ps_parser.c \
+			  ps_validation.c \
+			  ps_utils.c \
+			  ps_rules1.c
+
 
 #SOURCES		= $(addprefix $(SOURCES_DIR/, $(SRCS)))
 OBJ			= $(SRCS:.c=.o)
@@ -35,15 +37,15 @@ fclean:		clean
 
 run:		$(OBJ)
 			make -C $(LIBFTPATH) all
-			$(CC) $(OBJ) -o $(NAME) $(LINKS) && ./$(NAME) 42 -2 1337 2147483647
+			$(CC) $(OBJ) -o $(NAME) $(LINKS) && ./$(NAME) 1 2 3 4 5 6 7 8 9
 
 runv:		$(OBJ)
 			make -C $(LIBFTPATH) all
-			$(CC) $(OBJ) -o $(NAME) $(LINKS) && valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME) 42 -2 1337
+			$(CC) $(OBJ) -o $(NAME) $(LINKS) && valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME) 1 2 3 4 5 6 7 8 9
 
 runs:		$(OBJ)
 			make -C $(LIBFTPATH) all
-			$(CC) -fsanitize=address $(OBJ) -o $(NAME) $(LINKS) && ./$(NAME) 42 -2 1337 2147483647
+			$(CC) -fsanitize=address $(OBJ) -o $(NAME) $(LINKS) && ./$(NAME) 1 2 3 4 5 6 7 8 9
 
 re:			fclean all
 

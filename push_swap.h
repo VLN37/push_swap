@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/07 15:38:10 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/07 21:13:57 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ typedef struct s_data
 int	validation(int argc, char **argv, t_data data);
 t_data argvtoint(int argc, char **argv, t_data data);
 void cleanup(t_data data, int error);
+void swap(long long *stack1);
 
 #endif
