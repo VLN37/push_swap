@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/07 21:42:55 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/08 13:45:30 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ t_data	init(int argc, char **argv, t_data data)
 	int	i;
 
 	data.nbr_count = argc - 1;
-	data.stack1 = (long long*)malloc(sizeof(long long) * (data.nbr_count + 1));
-	data.stack2 = (long long*)malloc(sizeof(long long) * (data.nbr_count + 1));
+	data.stack1 = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
+	data.stack2 = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
 	data = argvtoint(argc, argv, data);
 	i = 0;
 	while (i < data.nbr_count)
@@ -26,9 +26,11 @@ t_data	init(int argc, char **argv, t_data data)
 	return (data);
 }
 
-void printstacks(t_data data)
+void	printstacks(t_data data)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	printf("stack 1\n");
 	while (data.stack1[i] != STOP)
 		printf("%3lld ", data.stack1[i++]);
@@ -42,7 +44,7 @@ void printstacks(t_data data)
 
 int	main(int argc, char **argv)
 {
-	t_data data;
+	t_data	data;
 
 	data = init(argc, argv, data);
 	if (!validation(argc, argv, data))
@@ -51,6 +53,8 @@ int	main(int argc, char **argv)
 	swap(data.stack1);
 	printstacks(data);
 	push(data.stack1, data.stack2);
+	printstacks(data);
+	rotate(data.stack1);
 	printstacks(data);
 	cleanup(data, EXIT_SUCCESS);
 }
