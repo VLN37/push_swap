@@ -5,7 +5,7 @@ SRCS		= push_swap.c \
 			  ps_parser.c \
 			  ps_validation.c \
 			  ps_utils.c \
-			  ps_rules1.c
+			  ps_rules.c
 
 
 #SOURCES		= $(addprefix $(SOURCES_DIR/, $(SRCS)))

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 20:45:01 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/08 13:43:21 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/08 13:49:47 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,15 @@ void	rotate(long long *stack)
 	holder = stack[0];
 	ft_memmove(stack, &stack[1], (len - 1) * sizeof(long long));
 	stack[len - 1] = holder;
+}
+
+void	rev_rotate(long long *stack)
+{
+	long long	holder;
+	int			len;
+
+	len = stoplen(stack);
+	holder = stack[len - 1];
+	ft_memmove(&stack[1], stack, (len - 1) * sizeof(long long));
+	stack[0] = holder;
 }

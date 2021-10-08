@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/08 13:45:30 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/08 13:50:32 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int	main(int argc, char **argv)
 	push(data.stack1, data.stack2);
 	printstacks(data);
 	rotate(data.stack1);
+	printstacks(data);
+	rev_rotate(data.stack1);
 	printstacks(data);
 	cleanup(data, EXIT_SUCCESS);
 }

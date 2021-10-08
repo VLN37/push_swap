@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/08 13:41:05 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/08 13:48:58 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ t_data	argvtoint(int argc, char **argv, t_data data);
 void	cleanup(t_data data, int error);
 void	swap(long long *stack);
 void	rotate(long long *stack);
+void	rev_rotate(long long *stack);
 
 #endif
