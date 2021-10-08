@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 12:56:20 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/08 14:26:58 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/08 15:10:15 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int	isarrayint(long long *arr, int argc)
 	i = 0;
 	while (i < argc - 1)
 	{
-		if (arr[i] > 2147483647 || arr[i] < -2147483648)
+		if (arr[i] > (long long)INT_MAX || arr[i] < (long long)INT_MIN)
 		{
 			printf("%lld\n", arr[i]);
 			ft_putstr_fd("Error\n", 2);

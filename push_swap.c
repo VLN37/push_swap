@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/08 13:50:32 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/08 15:07:13 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ void	printstacks(t_data data)
 	int	i;
 
 	i = 0;
-	printf("stack 1\n");
+	printf("stack a\n");
 	while (data.stack1[i] != STOP)
 		printf("%3lld ", data.stack1[i++]);
 	printf("\n");
 	i = 0;
-	printf("stack 2\n");
+	printf("stack b\n");
 	while (data.stack2[i] != STOP)
 		printf("%3lld ", data.stack2[i++]);
 	printf("\n\n");
