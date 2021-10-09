@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:25:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/09 16:07:11 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/09 16:54:50 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,31 +53,19 @@ int	bubble(t_data data)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	data.stack1max = get_max(data);
-	while (1)
+	while (++i)
 	{
 		if (issorted(data.stack1))
 			break ;
 		if (data.stack1[0] == data.stack1max)
-		{
-			printf("ra\n");
 			rotate(data.stack1);
-			i++;
-		}
 		else if (data.stack1[1] < data.stack1[0])
-		{
-			printf("sa\n");
 			swap(data.stack1);
-			i++;
-		}
 		else
-		{
-			printf("ra\n");
 			rotate(data.stack1);
-			i++;
-		}
 		printstacks(data);
 	}
-	return (i);
+	return (i - 2);
 }
