@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/09 17:19:22 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/09 20:55:22 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ t_data	init(int argc, char **argv, t_data data)
 {
 	int	i;
 
+	data.trial = NULL;
+	data.best = NULL;
 	data.nbr_count = argc - 1;
 	data.stack1 = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
 	data.stack2 = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
@@ -50,6 +52,8 @@ int	main(int argc, char **argv)
 	data = init(argc, argv, data);
 	if (!validation(argc, argv, data))
 		return (1);
-	dprintf(3, "%d\n", bubble(data));
+	data = bubble(data);
+	printf("%d\n", data.trialiter);
+	// printf("%s", data.trial);
 	cleanup(data, EXIT_SUCCESS);
 }

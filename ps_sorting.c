@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:25:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/09 18:58:35 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/09 20:49:18 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ long long	get_max(t_data data)
 	return (data.stack1max);
 }
 
-int	bubble(t_data data)
+t_data	bubble(t_data data)
 {
 	int	i;
 
@@ -60,12 +60,34 @@ int	bubble(t_data data)
 		if (issorted(data.stack1))
 			break ;
 		if (data.stack1[0] == data.stack1max)
-			game("ra\n", data);
+			data = game("ra\n", data);
 		else if (data.stack1[1] < data.stack1[0])
-			game("sa\n", data);
+			data = game("sa\n", data);
 		else
-			game("ra\n", data);
-		printstacks(data);
+			data = game("ra\n", data);
+		if (DEBUG)
+			printstacks(data);
 	}
-	return (i - 1);
+	data.trialiter = i;
+	return (data);
 }
+
+// long long getmedian(int *arr)
+// {
+// 	long long	*tmp;
+// 	long long	stackmedian;
+// 	int			i;
+
+// 	i = stoplen(arr);
+// 	tmp = (int *)malloc((i + 1) * sizeof(long long));
+// 	ft_memcpy(tmp, arr, (i + 1) * sizeof(long long));
+
+// }
+
+// int	algo1(t_data data)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	data.stack1max = get_max(data);
+// }

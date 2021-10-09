@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_rules1.c                                        :+:      :+:    :+:   */
+/*   ps_rules.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 20:45:01 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/08 13:49:47 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/09 19:01:32 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-long long	stoplen(long long *stack)
-{
-	int	i;
-
-	i = 0;
-	while (stack[i] != STOP)
-		i++;
-	return (i);
-}
 
 void	push(long long *src, long long *dest)
 {
