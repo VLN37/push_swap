@@ -6,6 +6,7 @@ SRCS		= push_swap.c \
 			  ps_validation.c \
 			  ps_utils.c \
 			  ps_rules.c \
+			  ps_game.c \
 			  ps_sorting.c
 
 
@@ -30,7 +31,6 @@ $(NAME):	$(OBJ)
 
 clean:
 			$(RM) $(OBJ)
-			$(RM) log.txt
 			make -C $(LIBFTPATH) clean
 
 fclean:		clean

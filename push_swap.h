@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/09 16:08:13 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/09 16:57:28 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ void	rotate(long long *stack);
 void	rev_rotate(long long *stack);
 int		bubble(t_data data);
 void	printstacks(t_data data);
+void	game(char *str, t_data data);
 
 #endif

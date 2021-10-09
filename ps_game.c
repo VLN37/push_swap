@@ -6,13 +6,13 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 16:29:37 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/09 16:46:08 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/09 17:30:13 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.c"
+#include "push_swap.h"
 
-static int	game2(t_data data, char *str)
+static int	game2(char *str, t_data data)
 {
 	if (!ft_strncmp(str, "rr\n", 3))
 	{
@@ -36,7 +36,7 @@ static int	game2(t_data data, char *str)
 		return (0);
 }
 
-void game(char *str, t_data data)
+void	game(char *str, t_data data)
 {
 	if (!ft_strncmp(str, "sa\n", 3))
 		swap(data.stack1);
@@ -48,13 +48,13 @@ void game(char *str, t_data data)
 		push(data.stack1, data.stack2);
 	else if (!ft_strncmp(str, "ra\n", 3))
 		rotate(data.stack1);
-	else if(!ft_strncmp(str, "rb\n", 3))
+	else if (!ft_strncmp(str, "rb\n", 3))
 		rotate(data.stack2);
-	else if(!ft_strncmp(str, "rra\n", 4))
+	else if (!ft_strncmp(str, "rra\n", 4))
 		rev_rotate(data.stack1);
 	else if (!ft_strncmp(str, "rrb\n", 4))
 		rev_rotate(data.stack2);
-	else if (!game)
+	else if (!game2(str, data))
 	{
 		ft_putstr_fd("Error", 2);
 		cleanup(data, EXIT_FAILURE);

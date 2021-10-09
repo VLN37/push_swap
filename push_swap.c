@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/09 16:09:12 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/09 17:19:22 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	dprintf(3, "%d\n", open("./log.txt", O_RDWR));
+	dprintf(3, "%d\n", open("./log.txt", O_CREAT | O_RDWR, 0777));
 	data = init(argc, argv, data);
 	if (!validation(argc, argv, data))
 		return (1);

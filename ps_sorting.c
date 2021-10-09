@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:25:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/09 16:54:50 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/09 17:30:25 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	issorted(long long *stack)
 	return (1);
 }
 
-long long get_max(t_data data)
+long long	get_max(t_data data)
 {
 	int	i;
 
@@ -60,11 +60,11 @@ int	bubble(t_data data)
 		if (issorted(data.stack1))
 			break ;
 		if (data.stack1[0] == data.stack1max)
-			rotate(data.stack1);
+			game("ra\n", data);
 		else if (data.stack1[1] < data.stack1[0])
-			swap(data.stack1);
+			game("sa\n", data);
 		else
-			rotate(data.stack1);
+			game("ra\n", data);
 		printstacks(data);
 	}
 	return (i - 2);
