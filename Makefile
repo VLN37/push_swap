@@ -30,6 +30,7 @@ $(NAME):	$(OBJ)
 
 clean:
 			$(RM) $(OBJ)
+			$(RM) log.txt
 			make -C $(LIBFTPATH) clean
 
 fclean:		clean
@@ -47,6 +48,9 @@ runv:		$(OBJ)
 runs:		$(OBJ)
 			make -C $(LIBFTPATH) all
 			$(CC) -fsanitize=address $(OBJ) -o $(NAME) $(LINKS) && ./$(NAME) 9 8 7 6 5 4 3 2
+
+runc:
+			./push_swap $ARG | ./checker_linux $ARG
 
 re:			fclean all
 

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/09 13:05:18 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/09 15:43:31 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,33 +31,25 @@ void	printstacks(t_data data)
 	int	i;
 
 	i = 0;
-	printf("stack a\n");
+	dprintf(3, "stack a\n");
 	while (data.stack1[i] != STOP)
-		printf("%3lld ", data.stack1[i++]);
-	printf("\n");
+		dprintf(3, "%3lld ", data.stack1[i++]);
+	dprintf(3, "\n");
 	// i = 0;
-	// printf("stack b\n");
+	// dprintf(3, "stack b\n");
 	// while (data.stack2[i] != STOP)
-	// 	printf("%3lld ", data.stack2[i++]);
-	printf("\n");
+	// 	dprintf(3, "%3lld ", data.stack2[i++]);
+	dprintf(3, "\n");
 }
 
 int	main(int argc, char **argv)
 {
 	t_data	data;
 
+	dprintf(3, "%d\n", open("./log.txt", O_CREAT | O_RDWR));
 	data = init(argc, argv, data);
 	if (!validation(argc, argv, data))
 		return (1);
-	// printstacks(data);
-	// swap(data.stack1);
-	// printstacks(data);
-	// push(data.stack1, data.stack2);
-	// printstacks(data);
-	// rotate(data.stack1);
-	// printstacks(data);
-	// rev_rotate(data.stack1);
-	printf("%d\n", bubble(data));
-	// printstacks(data);
+	dprintf(3, "%d\n", bubble(data));
 	cleanup(data, EXIT_SUCCESS);
 }

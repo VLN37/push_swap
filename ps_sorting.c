@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:25:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/09 13:24:38 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/09 15:44:30 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,19 @@ int	bubble(t_data data)
 			break ;
 		if (data.stack1[0] == 9)
 		{
+			printf("ra\n");
 			rotate(data.stack1);
 			i++;
 		}
 		else if (data.stack1[1] < data.stack1[0])
 		{
-			printf("swap\n");
+			printf("sa\n");
 			swap(data.stack1);
 			i++;
 		}
 		else
 		{
-			printf("rotate\n");
+			printf("ra\n");
 			rotate(data.stack1);
 			i++;
 		}
