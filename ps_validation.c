@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 12:56:20 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/08 15:10:15 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/09 13:24:14 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	isarrayunique(long long *arr)
 	j = 0;
 	while (arr[j] != STOP)
 	{
-		while(arr[i] != STOP)
+		while (arr[i] != STOP)
 		{
 			if (arr[j] == arr[i])
 			{

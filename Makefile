@@ -5,7 +5,8 @@ SRCS		= push_swap.c \
 			  ps_parser.c \
 			  ps_validation.c \
 			  ps_utils.c \
-			  ps_rules.c
+			  ps_rules.c \
+			  ps_sorting.c
 
 
 #SOURCES		= $(addprefix $(SOURCES_DIR/, $(SRCS)))
@@ -37,15 +38,15 @@ fclean:		clean
 
 run:		$(OBJ)
 			make -C $(LIBFTPATH) all
-			$(CC) $(OBJ) -o $(NAME) $(LINKS) && ./$(NAME) 1 2 3 4 5 6 7 8 9
+			$(CC) $(OBJ) -o $(NAME) $(LINKS) && ./$(NAME) 9 8 7 6 5 4 3 2 1
 
 runv:		$(OBJ)
 			make -C $(LIBFTPATH) all
-			$(CC) $(OBJ) -o $(NAME) $(LINKS) && valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME) 1 2 3 4 5 6 7 8 9
+			$(CC) $(OBJ) -o $(NAME) $(LINKS) && valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME) 9 8 7 6 5 4 3 2
 
 runs:		$(OBJ)
 			make -C $(LIBFTPATH) all
-			$(CC) -fsanitize=address $(OBJ) -o $(NAME) $(LINKS) && ./$(NAME) 1 2 3 4 5 6 7 8 9
+			$(CC) -fsanitize=address $(OBJ) -o $(NAME) $(LINKS) && ./$(NAME) 9 8 7 6 5 4 3 2
 
 re:			fclean all
 

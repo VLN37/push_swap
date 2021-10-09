@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/08 15:05:20 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/09 12:38:57 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ void	push(long long *src, long long *dest);
 void	swap(long long *stack);
 void	rotate(long long *stack);
 void	rev_rotate(long long *stack);
+int		bubble(t_data data);
 
 #endif
