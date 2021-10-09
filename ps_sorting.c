@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:25:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/09 15:44:30 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/09 16:07:11 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,32 @@ int	issorted(long long *stack)
 	return (1);
 }
 
+long long get_max(t_data data)
+{
+	int	i;
+
+	i = 0;
+	data.stack1max = 0;
+	while (data.stack1[i] != STOP)
+	{
+		if (data.stack1[i] > data.stack1max)
+			data.stack1max = data.stack1[i];
+		++i;
+	}
+	return (data.stack1max);
+}
+
 int	bubble(t_data data)
 {
 	int	i;
 
 	i = 0;
+	data.stack1max = get_max(data);
 	while (1)
 	{
 		if (issorted(data.stack1))
 			break ;
-		if (data.stack1[0] == 9)
+		if (data.stack1[0] == data.stack1max)
 		{
 			printf("ra\n");
 			rotate(data.stack1);

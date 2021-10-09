@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/09 15:41:40 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/09 16:08:13 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ typedef struct s_data
 {
 	long long	*stack1;
 	long long	*stack2;
+	long long	stack1max;
 	int			nbr_count;
+
 }	t_data;
 
 # ifndef INT_MAX
