@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:25:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/09 17:30:25 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/09 18:58:35 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	bubble(t_data data)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	data.stack1max = get_max(data);
 	while (++i)
 	{
@@ -67,5 +67,5 @@ int	bubble(t_data data)
 			game("ra\n", data);
 		printstacks(data);
 	}
-	return (i - 2);
+	return (i - 1);
 }

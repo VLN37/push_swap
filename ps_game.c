@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 16:29:37 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/09 17:30:13 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/09 18:47:15 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ void	game(char *str, t_data data)
 		rev_rotate(data.stack2);
 	else if (!game2(str, data))
 	{
-		ft_putstr_fd("Error", 2);
+		ft_putstr_fd("Command does not exist\n", 2);
+		ft_putstr_fd("Error\n", 2);
 		cleanup(data, EXIT_FAILURE);
 	}
 	ft_putstr_fd(str, 1);
