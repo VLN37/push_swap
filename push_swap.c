@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/09 20:55:22 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/09 20:57:37 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ void	printstacks(t_data data)
 	while (data.stack1[i] != STOP)
 		dprintf(3, "%3lld ", data.stack1[i++]);
 	dprintf(3, "\n");
-	// i = 0;
-	// dprintf(3, "stack b\n");
-	// while (data.stack2[i] != STOP)
-	// 	dprintf(3, "%3lld ", data.stack2[i++]);
+	i = 0;
+	dprintf(3, "stack b\n");
+	while (data.stack2[i] != STOP)
+		dprintf(3, "%3lld ", data.stack2[i++]);
 	dprintf(3, "\n");
 }
 

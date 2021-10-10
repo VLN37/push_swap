@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:25:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/09 20:49:18 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/09 21:49:36 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,18 @@ long long	get_max(t_data data)
 	return (data.stack1max);
 }
 
+long long get_median(long long *arr)
+{
+	int	median;
+	int	j;
+
+	j = 0;
+	median = stoplen(arr) / 2;
+	while (j < median)
+		++j;
+	return(arr[j]);
+}
+
 t_data	bubble(t_data data)
 {
 	int	i;
@@ -68,21 +80,12 @@ t_data	bubble(t_data data)
 		if (DEBUG)
 			printstacks(data);
 	}
+	data.stackmedian = get_median(data.stack1);
+	printf("%lld\n", data.stackmedian);
 	data.trialiter = i;
 	return (data);
 }
 
-// long long getmedian(int *arr)
-// {
-// 	long long	*tmp;
-// 	long long	stackmedian;
-// 	int			i;
-
-// 	i = stoplen(arr);
-// 	tmp = (int *)malloc((i + 1) * sizeof(long long));
-// 	ft_memcpy(tmp, arr, (i + 1) * sizeof(long long));
-
-// }
 
 // int	algo1(t_data data)
 // {
