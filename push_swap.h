@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/12 22:51:49 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/12 23:30:58 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct s_data
 	long long	*stack1;
 	long long	*stack2;
 	long long	stack1max;
+	long long	stack2max;
 	long long	stackmedian;
 	int			nbr_count;
 	char		*best;

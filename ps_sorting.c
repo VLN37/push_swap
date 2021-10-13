@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:25:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/12 20:46:17 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/12 23:12:55 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,25 @@ long long get_median(long long *arr)
 	j = 0;
 	median = stoplen(arr) / 2;
 	return(arr[median]);
+}
+
+t_data algo1(t_data data)
+{
+	int	i;
+
+	i = 0;
+	data.stack1max = get_max(data);
+	while (1)
+	{
+		if (data.stack1[0] == data.stack1max)
+			game("ra\n", data);
+		else if (data.stack1[0] > data.stack1[1])
+			game("sa\n", data);
+		else if (data.stack1[0] < data.stackmedian)
+			game("pb\n", data);
+		else
+			game("ra\n", data);
+	}
 }
 
 t_data	bubble(t_data data)
