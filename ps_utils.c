@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:08:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/09 20:31:59 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/12 22:50:31 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ long long	stoplen(long long *stack)
 
 void	cleanup(t_data data, int error)
 {
+	free(data.backup);
 	free(data.stack1);
 	free(data.stack2);
 	free(data.trial);

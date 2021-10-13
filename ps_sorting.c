@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:25:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/09 21:49:36 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/12 20:46:17 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,7 @@ long long get_median(long long *arr)
 
 	j = 0;
 	median = stoplen(arr) / 2;
-	while (j < median)
-		++j;
-	return(arr[j]);
+	return(arr[median]);
 }
 
 t_data	bubble(t_data data)
@@ -69,6 +67,7 @@ t_data	bubble(t_data data)
 	data.stack1max = get_max(data);
 	while (++i)
 	{
+		printf("%d\n", i);
 		if (issorted(data.stack1))
 			break ;
 		if (data.stack1[0] == data.stack1max)

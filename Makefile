@@ -39,7 +39,7 @@ fclean:		clean
 
 run:		$(OBJ)
 			make -C $(LIBFTPATH) all
-			$(CC) $(OBJ) -o $(NAME) $(LINKS) && ./$(NAME) 14 8 7 6 5 4 3 2 1
+			$(CC) $(OBJ) -o $(NAME) $(LINKS) && ./$(NAME) 10 9 8 7 6 5 4 3 2 1
 
 runv:		$(OBJ)
 			make -C $(LIBFTPATH) all

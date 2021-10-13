@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/09 20:57:37 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/12 22:52:47 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_data	init(int argc, char **argv, t_data data)
 	data.trial = NULL;
 	data.best = NULL;
 	data.nbr_count = argc - 1;
+	data.backup = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
 	data.stack1 = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
 	data.stack2 = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
 	data = argvtoint(argc, argv, data);
