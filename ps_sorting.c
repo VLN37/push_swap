@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:25:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/12 23:37:45 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/12 23:50:28 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,36 @@ int	issorted(long long *stack)
 	return (1);
 }
 
-long long	get_max(t_data data)
+long long	get_max(long long *stack)
 {
 	int	i;
+	int	max;
 
 	i = 0;
-	data.stack1max = 0;
-	while (data.stack1[i] != STOP)
+	max = -2147482648;
+	while (stack[i] != STOP)
 	{
-		if (data.stack1[i] > data.stack1max)
-			data.stack1max = data.stack1[i];
+		if (stack[i] > max)
+			max = stack[i];
 		++i;
 	}
-	return (data.stack1max);
+	return (max);
+}
+
+long long	get_min(long long *stack)
+{
+	int	i;
+	int	min;
+
+	i = 0;
+	min = 2147483647;
+	while (stack[i] != STOP)
+	{
+		if (stack[i] < min)
+			min = stack[i];
+		++i;
+	}
+	return (min);
 }
 
 long long get_median(long long *arr)
@@ -64,7 +81,7 @@ t_data algo1(t_data data)
 	int	i;
 
 	i = 0;
-	data.stack1max = get_max(data);
+	data.stack1max = get_max(data.stack1);
 	while (1)
 	{
 		if (data.stack1[0] == data.stack1max)
@@ -83,7 +100,7 @@ t_data	bubble(t_data data)
 	int	i;
 
 	i = 0;
-	data.stack1max = get_max(data);
+	data.stack1max = get_max(data.stack1);
 	while (++i)
 	{
 		if (issorted(data.stack1))
@@ -100,14 +117,6 @@ t_data	bubble(t_data data)
 	data.stackmedian = get_median(data.stack1);
 	printf("median = %lld\n", data.stackmedian);
 	data.trialiter = i;
+	printf("iter = %i\n", data.trialiter);
 	return (data);
 }
-
-
-// int	algo1(t_data data)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	data.stack1max = get_max(data);
-// }
