@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/12 23:41:21 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/13 00:15:29 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,14 @@ int	main(int argc, char **argv)
 	data = init(argc, argv, data);
 	if (!validation(argc, argv, data))
 		return (1);
+	// insertion_sort(data);
 	data = bubble(data);
 	printstacks(data);
 	reset(&data);
 	printstacks(data);
 	data = bubble(data);
 	printstacks(data);
-	//printf("%d\n", data.trialiter);
-	// printf("%s", data.trial);
+	printf("%d\n", data.trialiter);
+	printf("%s", data.trial);
 	cleanup(data, EXIT_SUCCESS);
 }

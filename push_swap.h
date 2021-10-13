@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/12 23:35:09 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/13 00:14:53 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,22 @@ typedef struct s_data
 #include <stdlib.h>
 #include <fcntl.h>
 
-int			validation(int argc, char **argv, t_data data);
-t_data		argvtoint(int argc, char **argv, t_data data);
-void		cleanup(t_data data, int error);
 void		push(long long *src, long long *dest);
 void		swap(long long *stack);
 void		rotate(long long *stack);
 void		rev_rotate(long long *stack);
+int			validation(int argc, char **argv, t_data data);
+t_data		argvtoint(int argc, char **argv, t_data data);
+t_data		game(char *str, t_data data);
+void		cleanup(t_data data, int error);
 t_data		bubble(t_data data);
 void		printstacks(t_data data);
-t_data		game(char *str, t_data data);
-long long	stoplen(long long *stack);
+int			insertion_sort(t_data data);
 void		reset(t_data *data);
-
+long long	stoplen(long long *stack);
+long long	get_min(long long *stack);
+long long	get_median(long long *arr);
+long long	get_max(long long *stack);
+int			issorted(long long *stack);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:25:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/12 23:50:28 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/13 00:11:22 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,17 @@ long long get_median(long long *arr)
 	j = 0;
 	median = stoplen(arr) / 2;
 	return(arr[median]);
+}
+
+int	insertion_sort(t_data data)
+{
+	long long	tmp[data.nbr_count + 1];
+
+	ft_memcpy(tmp, data.stack1, sizeof(long long) * (data.nbr_count + 1));
+	for (int i = 0; data.stack1[i] != STOP; i++)
+		printf("%lld\n", data.stack1[i]);
+	for (int i = 0; tmp[i] != STOP; i++)
+		printf("%lld\n", tmp[i]);
 }
 
 t_data algo1(t_data data)
