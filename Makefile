@@ -5,6 +5,7 @@ SRCS		= push_swap.c \
 			  ps_parser.c \
 			  ps_validation.c \
 			  ps_utils.c \
+			  ps_utils2.c \
 			  ps_rules.c \
 			  ps_game.c \
 			  ps_sorting.c
