@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/12 23:30:58 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/12 23:35:09 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ t_data		bubble(t_data data);
 void		printstacks(t_data data);
 t_data		game(char *str, t_data data);
 long long	stoplen(long long *stack);
+void		reset(t_data *data);
 
 
 #endif

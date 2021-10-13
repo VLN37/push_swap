@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:25:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/12 23:12:55 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/12 23:37:45 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ t_data	bubble(t_data data)
 	data.stack1max = get_max(data);
 	while (++i)
 	{
-		printf("%d\n", i);
 		if (issorted(data.stack1))
 			break ;
 		if (data.stack1[0] == data.stack1max)
@@ -99,7 +98,7 @@ t_data	bubble(t_data data)
 			printstacks(data);
 	}
 	data.stackmedian = get_median(data.stack1);
-	printf("%lld\n", data.stackmedian);
+	printf("median = %lld\n", data.stackmedian);
 	data.trialiter = i;
 	return (data);
 }

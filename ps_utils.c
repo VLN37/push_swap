@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:08:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/12 22:50:31 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/12 23:35:27 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,19 @@ long long	stoplen(long long *stack)
 		i++;
 	return (i);
 }
+
+void	reset(t_data *data)
+{
+	int	i;
+
+	i = -1;
+	while (data->backup[++i] != STOP)
+		data->stack1[i] = data->backup[i];
+	i = -1;
+	while (++i < data->nbr_count)
+		data->stack2[i] = (long long)STOP;
+}
+
 
 void	cleanup(t_data data, int error)
 {
