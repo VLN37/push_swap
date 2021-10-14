@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:25:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/14 00:09:27 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/14 01:22:14 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int	selection_sort(t_data data)
 		curr = get_relative_min(data.stack1, curr);
 		tmp[++i] = curr;
 	}
-	for (int j = 0; tmp[j - 1] != STOP; j++)
-		printf("%lld ", tmp[j]);
+	// for (int j = 0; tmp[j - 1] != STOP; j++)
+	// 	printf("%lld ", tmp[j]);
 	return (get_median(tmp));
 }
 

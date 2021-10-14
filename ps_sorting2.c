@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:09:30 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/14 00:59:47 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/14 01:22:42 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	issorted_rev(long long *stack)
 	return (1);
 }
 
-t_data sortb(t_data data)
+t_data	sortb(t_data data)
 {
 	printf("here\n");
 	data.stack2max = get_max(data.stack2);
@@ -63,7 +63,7 @@ t_data sortb(t_data data)
 	return (data);
 }
 
-t_data algo1(t_data data)
+t_data	algo1(t_data data)
 {
 	data.stack1max = get_max(data.stack1);
 	while (1)
@@ -88,3 +88,4 @@ t_data algo1(t_data data)
 	}
 	return (data);
 }
+
