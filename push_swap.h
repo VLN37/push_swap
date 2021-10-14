@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/13 23:25:09 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/14 00:45:27 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_data
 # endif
 
 # ifndef DEBUG
-#  define DEBUG 0
+#  define DEBUG 1
 # endif
 
 # define STOP 2147483648
@@ -68,5 +68,6 @@ long long	get_min(long long *stack);
 long long	get_median(long long *arr);
 long long	get_max(long long *stack);
 int			issorted(long long *stack);
+t_data		algo1(t_data data);
 
 #endif

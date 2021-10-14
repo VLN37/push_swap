@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"stdlib.h": "c",
-		"limits": "c"
+		"limits": "c",
+		"push_swap.h": "c"
 	}
 }

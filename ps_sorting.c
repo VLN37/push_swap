@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:25:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/13 23:21:34 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/14 00:09:27 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,25 +43,6 @@ int	selection_sort(t_data data)
 	for (int j = 0; tmp[j - 1] != STOP; j++)
 		printf("%lld ", tmp[j]);
 	return (get_median(tmp));
-}
-
-t_data algo1(t_data data)
-{
-	int	i;
-
-	i = 0;
-	data.stack1max = get_max(data.stack1);
-	while (1)
-	{
-		if (data.stack1[0] == data.stack1max)
-			game("ra\n", data, &data.trialiter);
-		else if (data.stack1[0] > data.stack1[1])
-			game("sa\n", data, &data.trialiter);
-		else if (data.stack1[0] < data.stackmedian)
-			game("pb\n", data, &data.trialiter);
-		else
-			game("ra\n", data, &data.trialiter);
-	}
 }
 
 t_data	bubble(t_data data)
