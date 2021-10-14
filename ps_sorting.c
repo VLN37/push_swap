@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:25:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/13 19:05:25 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/13 23:21:34 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,37 +54,33 @@ t_data algo1(t_data data)
 	while (1)
 	{
 		if (data.stack1[0] == data.stack1max)
-			game("ra\n", data);
+			game("ra\n", data, &data.trialiter);
 		else if (data.stack1[0] > data.stack1[1])
-			game("sa\n", data);
+			game("sa\n", data, &data.trialiter);
 		else if (data.stack1[0] < data.stackmedian)
-			game("pb\n", data);
+			game("pb\n", data, &data.trialiter);
 		else
-			game("ra\n", data);
+			game("ra\n", data, &data.trialiter);
 	}
 }
 
 t_data	bubble(t_data data)
 {
-	int	i;
-
-	i = 0;
 	data.stack1max = get_max(data.stack1);
-	while (++i)
+	while (1)
 	{
 		if (issorted(data.stack1))
 			break ;
 		if (data.stack1[0] == data.stack1max)
-			data = game("ra\n", data);
+			data = game("ra\n", data, &data.trialiter);
 		else if (data.stack1[1] < data.stack1[0])
-			data = game("sa\n", data);
+			data = game("sa\n", data, &data.trialiter);
 		else
-			data = game("ra\n", data);
+			data = game("ra\n", data, &data.trialiter);
 		if (DEBUG)
 			printstacks(data);
 	}
 	data.stackmedian = get_median(data.stack1);
-	data.trialiter = i;
 	printf("iter = %i\n", data.trialiter);
 	return (data);
 }

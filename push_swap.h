@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/13 19:05:32 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/13 23:25:09 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ typedef struct s_data
 	long long	*stack2;
 	long long	stack1max;
 	long long	stack2max;
+	long long	stackmin;
+	long long	stackmax;
 	long long	stackmedian;
 	int			nbr_count;
 	char		*best;
 	int			bestiter;
 	char		*trial;
 	int			trialiter;
-
 }	t_data;
 
 # ifndef INT_MAX
@@ -56,7 +57,7 @@ void		rotate(long long *stack);
 void		rev_rotate(long long *stack);
 int			validation(int argc, char **argv, t_data data);
 t_data		argvtoint(int argc, char **argv, t_data data);
-t_data		game(char *str, t_data data);
+t_data		game(char *str, t_data data, int *iter);
 void		cleanup(t_data data, int error);
 t_data		bubble(t_data data);
 void		printstacks(t_data data);
