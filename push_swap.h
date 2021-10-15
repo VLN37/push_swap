@@ -6,13 +6,12 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/14 01:11:43 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/14 21:02:02 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
 
 typedef struct s_data
 {
@@ -24,6 +23,7 @@ typedef struct s_data
 	long long	stackmin;
 	long long	stackmax;
 	long long	stackmedian;
+	int			direction;
 	int			nbr_count;
 	char		*best;
 	int			bestiter;
@@ -38,6 +38,9 @@ typedef struct s_data
 # ifndef INT_MIN
 #  define INT_MIN -2147483648
 # endif
+
+# define LEFT 0
+# define RIGHT 1
 
 # ifndef DEBUG
 #  define DEBUG 0
@@ -66,7 +69,7 @@ void		reset(t_data *data);
 long long	stoplen(long long *stack);
 long long	get_min(long long *stack);
 long long	get_median(long long *arr);
-long long	get_max(long long *stack);
+long long	get_max(long long *stack, int *direction);
 int			issorted(long long *stack);
 t_data		algo1(t_data data);
 

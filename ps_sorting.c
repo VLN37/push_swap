@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:25:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/14 01:22:14 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/14 21:06:16 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ long long	get_relative_min(long long *stack, long long curr)
 int	selection_sort(t_data data)
 {
 	long long	tmp[data.nbr_count + 1];
-	long long 	curr;
-	int	i;
+	long long	curr;
+	int			i;
 
 	i = -1;
 	ft_memcpy(tmp, data.stack1, sizeof(long long) * (data.nbr_count + 1));
@@ -47,7 +47,7 @@ int	selection_sort(t_data data)
 
 t_data	bubble(t_data data)
 {
-	data.stack1max = get_max(data.stack1);
+	data.stack1max = get_max(data.stack1, &data.direction);
 	while (1)
 	{
 		if (issorted(data.stack1))

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_sorting2.c                                      :+:      :+:    :+:   */
+/*   ps_sorting3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/14 00:09:30 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/14 21:07:08 by jofelipe         ###   ########.fr       */
+/*   Created: 2021/10/14 21:01:09 by jofelipe          #+#    #+#             */
+/*   Updated: 2021/10/14 21:05:36 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,14 @@ t_data	sortb(t_data data)
 			data = game("pa\n", data, &data.trialiter);
 			data.stack2max = get_max(data.stack2, &data.direction);
 		}
-		else if (data.stack2[0] == data.stackmin)
+		else if (data.stack2[0] == data.stackmin && data.direction == RIGHT)
 			data = game("rb\n", data, &data.trialiter);
+		else if (data.stack2[0] == data.stackmin && data.direction == LEFT)
+			data = game("rrb\n", data, &data.trialiter);
 		else if (data.stack2[0] < data.stack2[1])
 			data = game("sb\n", data, &data.trialiter);
+		else if (data.direction == LEFT)
+			data = game("rrb\n", data, &data.trialiter);
 		else
 			data = game("rb\n", data, &data.trialiter);
 		if (DEBUG)
@@ -65,6 +69,7 @@ t_data	sortb(t_data data)
 
 t_data	algo1(t_data data)
 {
+	data.stackmin = get_min(data.stack1);
 	data.stack1max = get_max(data.stack1, &data.direction);
 	while (1)
 	{
@@ -77,12 +82,14 @@ t_data	algo1(t_data data)
 		}
 		else if (data.stack1[0] == data.stack1max)
 			data = game("ra\n", data, &data.trialiter);
+		else if (data.stack1[0] > data.stack1[1] && data.stack2[0] < data.stack2[1] && data.stack2[0] != data.stackmin)
+			data = game("ss\n", data, &data.trialiter);
+		else if (data.stack1[0] <= data.stackmedian)
+			data = game("pb\n", data, &data.trialiter);
 		else if (data.stack1[0] > data.stack1[1])
 			data = game("sa\n", data, &data.trialiter);
-		else if (data.stack1[0] < data.stackmedian)
-			data = game("pb\n", data, &data.trialiter);
 		else
-			data = game("ra\n", data, &data.trialiter);
+			data = game("rr\n", data, &data.trialiter);
 		if (DEBUG)
 			printstacks(data);
 	}

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 16:29:37 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/14 00:57:06 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/14 21:03:36 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,10 @@ static int	game2(char *str, t_data data)
 		return (0);
 }
 
-char *ft_realloc(char *old, char *append)
+char	*ft_realloc(char *old, char *append)
 {
 	char	*new;
+
 	if (!old)
 		old = ft_strdup("");
 	new = ft_strjoin(old, append);
