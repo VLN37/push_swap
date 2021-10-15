@@ -6,31 +6,31 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:08:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/15 02:37:25 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/15 03:52:57 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_direction(t_data data)
+int	get_direction(t_data data, long long *stack)
 {
 	int	i;
 	int	j;
 	int	len;
 
-	len = stoplen(data.stack1);
-	j = 0;
+	len = stoplen(stack);
+	j = 1;
 	i = 0;
 	while (j < len)
 	{
-		if (data.stack1[len - j] >= data.sorted[data.currslice * SLICE])
+		if (stack[len - j] >= data.sorted[data.currslice * SLICE])
 			break;
 		j++;
 
 	}
-	while (data.stack1[i] != STOP)
+	while (stack[i] != STOP)
 	{
-		if (data.stack1[i] >= data.sorted[(data.currslice * SLICE)])
+		if (stack[i] >= data.sorted[(data.currslice * SLICE)])
 			break ;
 		i++;
 	}
