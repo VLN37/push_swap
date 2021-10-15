@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/15 01:28:24 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/15 02:26:17 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_data	init(int argc, char **argv, t_data data)
 	data.stack2 = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
 	data = argvtoint(argc, argv, data);
 	i = 0;
-	while (i < data.nbr_count)
+	while (i <= data.nbr_count)
 		data.stack2[i++] = STOP;
 	data.stackmedian = selection_sort(data);
 	data.stackmin = get_min(data.stack1);
@@ -54,12 +54,12 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	// dprintf(3, "%d\n", open("./log.txt", O_CREAT | O_RDWR, 0777));
+	 dprintf(3, "%d\n", open("./log.txt", O_CREAT | O_RDWR, 0777));
 	data = init(argc, argv, data);
 	if (!validation(argc, argv, data))
 		return (1);
 	data.stackmedian = selection_sort(data);
-
+	printstacks(data);
 	data = algo1(data);
 
 	// data = bubble(data);
@@ -71,6 +71,6 @@ int	main(int argc, char **argv)
 
 	printf("median = %lld\n", data.stackmedian);
 	printf("%d\n", data.trialiter);
-	//printf("%s", data.trial);
+	printf("%s", data.trial);
 	cleanup(data, EXIT_SUCCESS);
 }

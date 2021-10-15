@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 20:45:01 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/14 21:42:12 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/15 02:46:38 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	swap(long long *stack)
 {
 	long long	holder;
 
-	if (*stack == STOP)
+	if (stack[0] == STOP || stack[1] == STOP)
 		return ;
 	holder = stack[0];
 	stack[0] = stack[1];
