@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 21:01:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/14 21:05:36 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/14 21:48:50 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	issorted_rev(long long *stack)
 
 t_data	sortb(t_data data)
 {
-	printf("here\n");
+	//printf("here\n");
 	data.stack2max = get_max(data.stack2, &data.direction);
 	while (1)
 	{

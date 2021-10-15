@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/14 21:02:37 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/14 22:00:12 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	dprintf(3, "%d\n", open("./log.txt", O_CREAT | O_RDWR, 0777));
+	// dprintf(3, "%d\n", open("./log.txt", O_CREAT | O_RDWR, 0777));
 	data = init(argc, argv, data);
 	if (!validation(argc, argv, data))
 		return (1);
 	data.stackmedian = selection_sort(data);
-	printf("median = %lld\n", data.stackmedian);
+	//printf("median = %lld\n", data.stackmedian);
 
 	data = algo1(data);
 	// printf("%s", data.trial);
@@ -70,7 +70,7 @@ int	main(int argc, char **argv)
 	// data = bubble(data);
 	// printstacks(data);
 
-	printf("%d\n", data.trialiter);
-	// printf("%s", data.trial);
+	//printf("%d\n", data.trialiter);
+	printf("%s", data.trial);
 	cleanup(data, EXIT_SUCCESS);
 }
