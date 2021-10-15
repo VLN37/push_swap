@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/14 21:42:46 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/15 01:25:28 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 typedef struct s_data
 {
+	long long	*sorted;
 	long long	*backup;
 	long long	*stack1;
 	long long	*stack2;
@@ -71,6 +72,7 @@ long long	get_min(long long *stack);
 long long	get_median(long long *arr);
 long long	get_max(long long *stack, int *direction);
 int			issorted(long long *stack);
+int			issorted_rev(long long *stack);
 t_data		algo1(t_data data);
 
 #endif

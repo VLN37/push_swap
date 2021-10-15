@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:25:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/14 21:06:16 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/15 01:29:53 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,19 @@ long long	get_relative_min(long long *stack, long long curr)
 
 int	selection_sort(t_data data)
 {
-	long long	tmp[data.nbr_count + 1];
 	long long	curr;
 	int			i;
 
 	i = -1;
-	ft_memcpy(tmp, data.stack1, sizeof(long long) * (data.nbr_count + 1));
 	curr = -2147483648;
 	while (curr != STOP)
 	{
 		curr = get_relative_min(data.stack1, curr);
-		tmp[++i] = curr;
+		data.sorted[++i] = curr;
 	}
-	// for (int j = 0; tmp[j - 1] != STOP; j++)
-	// 	printf("%lld ", tmp[j]);
-	return (get_median(tmp));
+	// for (int j = 0; data.sorted[j - 1] != STOP; j++)
+	// 	printf("%lld ", data.sorted[j]);
+	return (get_median(data.sorted));
 }
 
 t_data	bubble(t_data data)

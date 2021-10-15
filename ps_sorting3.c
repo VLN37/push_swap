@@ -6,33 +6,11 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 21:01:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/14 21:48:50 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/15 00:40:43 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	issorted_rev(long long *stack)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 1;
-	while (stack[i] != STOP)
-	{
-		while (stack[j] != STOP)
-		{
-			if (stack[i] < stack[j])
-				return (0);
-			else
-				j++;
-		}
-		i++;
-		j = i + 1;
-	}
-	return (1);
-}
 
 t_data	sortb(t_data data)
 {
@@ -50,6 +28,7 @@ t_data	sortb(t_data data)
 		{
 			data = game("pa\n", data, &data.trialiter);
 			data.stack2max = get_max(data.stack2, &data.direction);
+			printf("%d\n", data.direction);
 		}
 		else if (data.stack2[0] == data.stackmin && data.direction == RIGHT)
 			data = game("rb\n", data, &data.trialiter);

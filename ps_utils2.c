@@ -6,11 +6,33 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 00:14:36 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/14 22:21:40 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/15 00:44:29 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	issorted_rev(long long *stack)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 1;
+	while (stack[i] != STOP)
+	{
+		while (stack[j] != STOP)
+		{
+			if (stack[i] < stack[j])
+				return (0);
+			else
+				j++;
+		}
+		i++;
+		j = i + 1;
+	}
+	return (1);
+}
 
 int	issorted(long long *stack)
 {
@@ -47,7 +69,7 @@ long long	get_max(long long *stack, int *direction)
 			max = stack[i];
 		++i;
 	}
-	if (i > stoplen(stack) / 2)
+	if (i >= (stoplen(stack) / 2) - 1)
 		*direction = LEFT;
 	else
 		*direction = RIGHT;
