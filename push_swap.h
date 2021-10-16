@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/15 06:04:27 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/16 02:16:33 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ t_data		game(char *str, t_data data, int *iter);
 void		cleanup(t_data data, int error);
 t_data		bubble(t_data data);
 void		printstacks(t_data data);
-int			selection_sort(t_data data);
+long long	*selection_sort(long long *arr, int len);
 void		reset(t_data *data);
 long long	stoplen(long long *stack);
 long long	get_min(long long *stack);
-long long	get_median(long long *arr);
+long long	get_median(long long *arr, int len);
 long long	get_max(long long *stack, int *direction);
 long long	get_max_two(long long *stack);
 int			get_direction(t_data data, long long *stack);

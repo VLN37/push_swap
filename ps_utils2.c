@@ -6,11 +6,38 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 00:14:36 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/15 06:04:29 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/16 02:40:39 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	get_direction(t_data data, long long *stack)
+{
+	int	i;
+	int	j;
+	int	len;
+
+	len = stoplen(stack);
+	j = 1;
+	i = 0;
+	while (j < len)
+	{
+		if (stack[len - j] >= data.sorted[data.currslice * SLICE])
+			break;
+		j++;
+
+	}
+	while (stack[i] != STOP)
+	{
+		if (stack[i] >= data.sorted[(data.currslice * SLICE)])
+			break ;
+		i++;
+	}
+	if (j < i)
+		return (LEFT);
+	return (RIGHT);
+}
 
 int	issorted_rev(long long *stack)
 {
@@ -56,64 +83,50 @@ int	issorted(long long *stack)
 	return (1);
 }
 
-long long	get_max_two(long long *stack)
+long long	get_relative_min(long long *stack, long long curr)
 {
-	int	i;
-	int	max;
+	long long	min;
 
-	i = 0;
-	max = -2147482648;
-	while (stack[i] != STOP)
+	min = STOP;
+	while (*stack != STOP)
 	{
-		if (stack[i] > max)
-			max = stack[i];
-		++i;
-	}
-	return (max);
-}
-
-long long	get_max(long long *stack, int *direction)
-{
-	int	i;
-	int	max;
-
-	i = 0;
-	max = -2147482648;
-	while (stack[i] != STOP)
-	{
-		if (stack[i] > max)
-			max = stack[i];
-		++i;
-	}
-	if (i >= (stoplen(stack) / 2) - 1)
-		*direction = LEFT;
-	else
-		*direction = RIGHT;
-	return (max);
-}
-
-long long	get_min(long long *stack)
-{
-	int	i;
-	int	min;
-
-	i = 0;
-	min = 2147483647;
-	while (stack[i] != STOP)
-	{
-		if (stack[i] < min)
-			min = stack[i];
-		++i;
+		if (*stack < min && *stack > curr)
+			min = *stack;
+		stack++;
 	}
 	return (min);
 }
 
-long long	get_median(long long *arr)
-{
-	int	median;
-	int	j;
 
-	j = 0;
-	median = stoplen(arr) / 2;
-	return (arr[median]);
+//returns a sorted array that needs to be freed
+long long	*selection_sort(long long *arr, int len)
+{
+	long long	curr;
+	long long	*ret;
+	int			i;
+
+	ret = malloc(sizeof(long long) * (len + 1));
+	i = -1;
+	curr = -2147483648;
+	while (len--)
+	{
+		curr = get_relative_min(arr, curr);
+		ret[++i] = curr;
+	}
+	ret[++i] = STOP;
+	// for (int j = 0; ret[j] != STOP; j++)
+	// 	printf("%lld ", ret[j]);
+	return (ret);
+}
+
+long long	get_median(long long *arr, int len)
+{
+	long long	ret;
+	long long	*tmp;
+	int			median;
+
+	tmp = selection_sort(arr, len);
+	ret = tmp[(len / 2) - 1];
+	free(tmp);
+	return (ret);
 }

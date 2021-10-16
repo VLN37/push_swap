@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/16 01:54:08 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/16 03:46:07 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_data	init(int argc, char **argv, t_data data)
 	data.best = NULL;
 	data.trialiter = 0;
 	data.nbr_count = argc - 1;
-	data.sorted = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
 	data.backup = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
 	data.stack1 = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
 	data.stack2 = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
@@ -28,7 +27,8 @@ t_data	init(int argc, char **argv, t_data data)
 	i = 0;
 	while (i <= data.nbr_count)
 		data.stack2[i++] = STOP;
-	data.stackmedian = selection_sort(data);
+	data.sorted = selection_sort(data.stack1, stoplen(data.stack1));
+	data.stackmedian = get_median(data.stack1, stoplen(data.stack1));
 	data.stackmin = get_min(data.stack1);
 	data.stackmax = get_max(data.stack1, &data.direction);
 	return (data);
@@ -60,8 +60,7 @@ int	main(int argc, char **argv)
 		return (1);
 
 
-	// data.stackmedian = selection_sort(data);
-	// data = algo1(data);
+	data = algo1(data);
 
 	// data = bubble(data);
 	// printstacks(data);

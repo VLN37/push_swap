@@ -6,37 +6,62 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:08:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/15 05:09:25 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/16 03:45:43 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_direction(t_data data, long long *stack)
+long long	get_max_two(long long *stack)
 {
 	int	i;
-	int	j;
-	int	len;
+	int	max;
 
-	len = stoplen(stack);
-	j = 1;
 	i = 0;
-	while (j < len)
-	{
-		if (stack[len - j] >= data.sorted[data.currslice * SLICE])
-			break;
-		j++;
-
-	}
+	max = -2147482648;
 	while (stack[i] != STOP)
 	{
-		if (stack[i] >= data.sorted[(data.currslice * SLICE)])
-			break ;
-		i++;
+		if (stack[i] > max)
+			max = stack[i];
+		++i;
 	}
-	if (j < i)
-		return (LEFT);
-	return (RIGHT);
+	return (max);
+}
+
+long long	get_max(long long *stack, int *direction)
+{
+	int	i;
+	int	max;
+
+	i = 0;
+	max = -2147482648;
+	while (stack[i] != STOP)
+	{
+		if (stack[i] > max)
+			max = stack[i];
+		++i;
+	}
+	if (i >= (stoplen(stack) / 2) - 1)
+		*direction = LEFT;
+	else
+		*direction = RIGHT;
+	return (max);
+}
+
+long long	get_min(long long *stack)
+{
+	int	i;
+	int	min;
+
+	i = 0;
+	min = 2147483647;
+	while (stack[i] != STOP)
+	{
+		if (stack[i] < min)
+			min = stack[i];
+		++i;
+	}
+	return (min);
 }
 
 long long	stoplen(long long *stack)
@@ -64,6 +89,7 @@ void	reset(t_data *data)
 
 void	cleanup(t_data data, int error)
 {
+	free(data.sorted);
 	free(data.backup);
 	free(data.stack1);
 	free(data.stack2);
