@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/16 04:14:46 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/16 04:49:55 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,6 @@ int			get_direction(t_data data, long long *stack);
 int			issorted(long long *stack);
 int			issorted_rev(long long *stack);
 t_data		algo1(t_data data);
+long long	stopperlen(long long *stack, long long stopper);
 
 #endif
