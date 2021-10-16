@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:08:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/16 03:45:43 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/16 04:30:48 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,16 @@ long long	get_min(long long *stack)
 		++i;
 	}
 	return (min);
+}
+
+long long	stopperlen(long long *stack, long long stopper)
+{
+	int	i;
+
+	i = 0;
+	while (stack[i] != stopper)
+		i++;
+	return (i);
 }
 
 long long	stoplen(long long *stack)

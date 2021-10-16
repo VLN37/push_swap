@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/16 02:16:33 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/16 04:14:46 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ typedef struct s_data
 	long long	*stack2;
 	long long	stack1max;
 	long long	stack2max;
+	long long	stack1min;
+	long long	stack2min;
 	long long	stackmin;
 	long long	stackmax;
 	long long	stackmedian;
 	long long	push;
-	int			currslice;
+	int			y;
 	int			direction;
 	int			nbr_count;
 	char		*best;

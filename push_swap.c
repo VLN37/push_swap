@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/16 03:46:07 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/16 04:45:53 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_data	init(int argc, char **argv, t_data data)
 	data.trial = NULL;
 	data.best = NULL;
 	data.trialiter = 0;
+	data.y = 0;
 	data.nbr_count = argc - 1;
 	data.backup = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
 	data.stack1 = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
@@ -58,7 +59,6 @@ int	main(int argc, char **argv)
 	data = init(argc, argv, data);
 	if (!validation(argc, argv, data))
 		return (1);
-
 
 	data = algo1(data);
 

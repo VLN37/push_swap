@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:19:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/16 03:43:18 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/16 04:47:06 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,35 @@ t_data	split(t_data data, long long **from, long long **to, long long len)
 	return (data);
 }
 
+t_data	push_to_a(t_data data)
+{
+	data.stack2min = get_min(data.stack2);
+	while (data.stack2[0] != STOP)
+	{
+		if (data.stack2[0] == data.stack2min)
+		{
+			data = game("pa\n", data, &data.trialiter);
+			data = game("ra\n", data, &data.trialiter);
+			data.stack2min = get_min(data.stack2);
+		}
+		else
+			data = game("rb\n", data, &data.trialiter);
+		if (DEBUG)
+			printstacks(data);
+	}
+	return (data);
+}
+
 t_data	algo1(t_data data)
 {
+	int	min;
+
 	data = split(data, &data.stack1, &data.stack2, stoplen(data.stack1));
+	min = data.stack1[0];
 	data = split2(data, &data.stack2, &data.stack1, stoplen(data.stack2));
+	data = push_to_a(data);
+	while (data.stack1[0] != min)
+		data = game("pb\n", data, &data.trialiter);
+	data = push_to_a(data);
 	return (data);
 }
