@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/15 03:32:48 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/15 06:04:27 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_data
 	long long	stackmin;
 	long long	stackmax;
 	long long	stackmedian;
+	long long	push;
 	int			currslice;
 	int			direction;
 	int			nbr_count;
@@ -73,6 +74,7 @@ long long	stoplen(long long *stack);
 long long	get_min(long long *stack);
 long long	get_median(long long *arr);
 long long	get_max(long long *stack, int *direction);
+long long	get_max_two(long long *stack);
 int			get_direction(t_data data, long long *stack);
 int			issorted(long long *stack);
 int			issorted_rev(long long *stack);

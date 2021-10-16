@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/15 02:26:17 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/16 01:54:08 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,10 @@ int	main(int argc, char **argv)
 	data = init(argc, argv, data);
 	if (!validation(argc, argv, data))
 		return (1);
-	data.stackmedian = selection_sort(data);
-	printstacks(data);
-	data = algo1(data);
+
+
+	// data.stackmedian = selection_sort(data);
+	// data = algo1(data);
 
 	// data = bubble(data);
 	// printstacks(data);

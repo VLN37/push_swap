@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 00:14:36 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/15 00:44:29 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/15 06:04:29 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,22 @@ int	issorted(long long *stack)
 		j = i + 1;
 	}
 	return (1);
+}
+
+long long	get_max_two(long long *stack)
+{
+	int	i;
+	int	max;
+
+	i = 0;
+	max = -2147482648;
+	while (stack[i] != STOP)
+	{
+		if (stack[i] > max)
+			max = stack[i];
+		++i;
+	}
+	return (max);
 }
 
 long long	get_max(long long *stack, int *direction)
