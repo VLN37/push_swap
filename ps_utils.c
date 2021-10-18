@@ -6,13 +6,13 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:08:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/16 04:30:48 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/18 09:27:57 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long long	get_max_two(long long *stack)
+long long	get_max2(long long *stack)
 {
 	int	i;
 	int	max;

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:19:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/16 05:15:45 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/18 09:27:15 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,11 @@ t_data second_push(t_data data)
 
 t_data	push_to_a(t_data data)
 {
+	int	i;
+
+	i = 0;
 	data.stack2min = get_min(data.stack2);
+	data.stack2max = get_max2(data.stack2);
 	while (data.stack2[0] != STOP)
 	{
 		if (data.stack2[0] == data.stack2min)
@@ -66,11 +70,17 @@ t_data	push_to_a(t_data data)
 			data = game("ra\n", data, &data.trialiter);
 			data.stack2min = get_min(data.stack2);
 		}
+		if (data.stack2[0] == data.stack2max)
+		{
+			data = game("pa\n", data, &data.trialiter);
+			data.stack2max = get_max2(data.stack2);
+			i++;
+		}
 		else
 			data = game("rb\n", data, &data.trialiter);
-		if (DEBUG)
-			printstacks(data);
 	}
+	while (i--)
+		data = game("ra\n", data, &data.trialiter);
 	return (data);
 }
 
