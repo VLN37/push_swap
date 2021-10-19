@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/19 08:49:20 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/19 10:27:48 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 typedef struct s_slice
 {
-	int	thresholds[50];
+	long long	threshold;
 	int	i;
 }	t_slice;
 
@@ -40,7 +40,7 @@ typedef struct s_data
 	int			bestiter;
 	char		*trial;
 	int			trialiter;
-	t_slice		*thresholds;
+	t_slice		*slice;
 }	t_data;
 
 # ifndef INT_MAX

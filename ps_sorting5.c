@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:19:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/19 09:05:58 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/19 10:44:00 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,17 @@ t_data	split(t_data data, long long **from, long long **to, long long len)
 
 t_data second_push(t_data data)
 {
-	while (data.stack1[0] != data.stackmin)
-		data = game("pb\n", data, &data.trialiter);
+	if (data.slice->threshold == STOP)
+	{
+		while (data.stack1[0] != data.stackmin)
+				data = game("pb\n", data, &data.trialiter);
+	}
+	else
+	{
+		while (data.stack1[0] != data.slice->threshold)
+			data = game("pb\n", data, &data.trialiter);
+		data.slice->threshold = STOP;
+	}
 	return (data);
 }
 
@@ -96,12 +105,10 @@ t_data	algo1(t_data data)
 	int	max;
 
 	data = split(data, &data.stack1, &data.stack2, stoplen(data.stack1));
-	min = data.stack1[0];
-	max = get_max(data.stack1, &data.direction);
+	data.slice->threshold = data.stack1[0];
 	data = split2(data, &data.stack2, &data.stack1, stoplen(data.stack2));
 	data = push_to_a(data);
-	while (*data.stack1 != min)
-		data = game("pb\n", data, &data.trialiter);
+	data = second_push(data);
 	data = push_to_a(data);
 	data = second_push(data);
 	data = split2(data, &data.stack2, &data.stack1, stoplen(data.stack2));
