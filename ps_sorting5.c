@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:19:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/19 12:05:30 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/19 12:28:04 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,16 @@ t_data	split2(t_data data, long long **from, long long **to, long long len)
 
 	data.slice->threshold[++data.slice->i] = data.stack1[0];
 	median = len / 2;
+	data.stack2min = get_min(data.stack2);
 	tmp = selection_sort(*from, len);
 	while (len--)
 	{
+		if ((*from)[0] == data.stack2min)
+		{
+			data = game("pa\n", data, &data.trialiter);
+			data = game("ra\n", data, &data.trialiter);
+			data.stack2min = get_min(data.stack2);
+		}
 		if ((*from)[0] > tmp[median - 1])
 			data = game("pa\n", data, &data.trialiter);
 		else
