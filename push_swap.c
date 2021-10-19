@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/19 10:46:41 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/19 14:09:24 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ t_data	init(int argc, char **argv, t_data data, t_slice slice)
 
 	data.slice = &slice;
 	slice.i = 0;
+	data.sortedindex = 0;
 	data.trial = NULL;
 	data.best = NULL;
 	data.trialiter = 0;
@@ -58,6 +59,8 @@ int	main(int argc, char **argv)
 	t_data	data;
 	t_slice	slice;
 
+	int i;
+	i = 0;
 	 dprintf(3, "%d\n", open("./log.txt", O_CREAT | O_RDWR, 0777));
 	data = init(argc, argv, data, slice);
 	if (!validation(argc, argv, data))

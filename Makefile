@@ -24,7 +24,7 @@ LINKS		= -I $(LIBFTPATH) -L $(LIBFTPATH) -lft
 
 all:		$(NAME)
 
-$(NAME):	$(OBJ)
+$(NAME):	$(OBJ) push_swap.h
 			make -C $(LIBFTPATH) all
 			$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LINKS)
 

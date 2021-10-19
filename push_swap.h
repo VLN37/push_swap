@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/19 10:44:38 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/19 14:00:25 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_slice
 typedef struct s_data
 {
 	long long	*sorted;
+	int			sortedindex;
 	long long	*backup;
 	long long	*stack1;
 	long long	*stack2;
@@ -55,7 +56,7 @@ typedef struct s_data
 # define RIGHT 1
 
 # ifndef DEBUG
-#  define DEBUG 0
+#  define DEBUG 1
 # endif
 
 # define STOP 2147483648
