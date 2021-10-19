@@ -6,12 +6,18 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/18 09:28:02 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/19 08:49:20 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+typedef struct s_slice
+{
+	int	thresholds[50];
+	int	i;
+}	t_slice;
 
 typedef struct s_data
 {
@@ -34,6 +40,7 @@ typedef struct s_data
 	int			bestiter;
 	char		*trial;
 	int			trialiter;
+	t_slice		*thresholds;
 }	t_data;
 
 # ifndef INT_MAX

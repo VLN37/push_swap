@@ -6,16 +6,18 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/18 10:10:30 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/19 09:11:27 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_data	init(int argc, char **argv, t_data data)
+t_data	init(int argc, char **argv, t_data data, t_slice slice)
 {
-	int	i;
+	int		i;
 
+	data.thresholds = &slice;
+	slice.i = 0;
 	data.trial = NULL;
 	data.best = NULL;
 	data.trialiter = 0;
@@ -54,9 +56,10 @@ void	printstacks(t_data data)
 int	main(int argc, char **argv)
 {
 	t_data	data;
+	t_slice	slice;
 
 	 dprintf(3, "%d\n", open("./log.txt", O_CREAT | O_RDWR, 0777));
-	data = init(argc, argv, data);
+	data = init(argc, argv, data, slice);
 	if (!validation(argc, argv, data))
 		return (1);
 
