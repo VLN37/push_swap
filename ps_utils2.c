@@ -6,38 +6,38 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 00:14:36 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/16 04:49:16 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/18 09:55:19 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// int	get_direction(t_data data, long long *stack)
-// {
-// 	int	i;
-// 	int	j;
-// 	int	len;
+int	get_direction(t_data data, long long *stack)
+{
+	int	i;
+	int	j;
+	int	len;
 
-// 	len = stoplen(stack);
-// 	j = 1;
-// 	i = 0;
-// 	while (j < len)
-// 	{
-// 		if (stack[len - j] >= data.sorted[data.currslice * SLICE])
-// 			break;
-// 		j++;
+	len = stoplen(stack);
+	j = 0;
+	i = 0;
+	while (j < len)
+	{
+		if (stack[len - j - 1] == data.stack2max || stack[len - j - 1] == data.stack2min)
+			break;
+		j++;
 
-// 	}
-// 	while (stack[i] != STOP)
-// 	{
-// 		if (stack[i] >= data.sorted[(data.currslice * SLICE)])
-// 			break ;
-// 		i++;
-// 	}
-// 	if (j < i)
-// 		return (LEFT);
-// 	return (RIGHT);
-// }
+	}
+	while (stack[i] != STOP)
+	{
+		if (stack[i] == data.stack2max || stack[i] == data.stack2min)
+			break ;
+		i++;
+	}
+	if (j < i)
+		return (LEFT);
+	return (RIGHT);
+}
 
 int	issorted_rev(long long *stack)
 {

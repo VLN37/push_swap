@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:19:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/18 09:27:15 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/18 10:11:24 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ t_data	push_to_a(t_data data)
 	data.stack2max = get_max2(data.stack2);
 	while (data.stack2[0] != STOP)
 	{
+		data.direction = get_direction(data, data.stack2);
 		if (data.stack2[0] == data.stack2min)
 		{
 			data = game("pa\n", data, &data.trialiter);
@@ -77,7 +78,12 @@ t_data	push_to_a(t_data data)
 			i++;
 		}
 		else
-			data = game("rb\n", data, &data.trialiter);
+		{
+			if (data.direction == RIGHT)
+				data = game("rb\n", data, &data.trialiter);
+			else
+				data = game("rrb\n", data, &data.trialiter);
+		}
 	}
 	while (i--)
 		data = game("ra\n", data, &data.trialiter);

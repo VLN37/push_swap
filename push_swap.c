@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/16 04:56:41 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/18 10:10:30 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ int	main(int argc, char **argv)
 	// data = bubble(data);
 	// printstacks(data);
 
-	printf("median = %lld\n", data.stackmedian);
-	printf("%d\n", data.trialiter);
+	// printf("median = %lld\n", data.stackmedian);
+	// printf("%d\n", data.trialiter);
 	printf("%s", data.trial);
 	cleanup(data, EXIT_SUCCESS);
 }
