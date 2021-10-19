@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:19:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/19 11:52:00 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/19 12:05:30 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,14 +107,18 @@ t_data	algo1(t_data data)
 
 	data.slice->threshold[data.slice->i] = STOP;
 	data = split(data, &data.stack1, &data.stack2, stoplen(data.stack1));
-	data = split2(data, &data.stack2, &data.stack1, stoplen(data.stack2));
-	data = push_to_a(data);
-	data = second_push(data);
-	data = push_to_a(data);
-	data = second_push(data);
-	data = split2(data, &data.stack2, &data.stack1, stoplen(data.stack2));
-	data = push_to_a(data);
-	data = second_push(data);
-	data = push_to_a(data);
+	while (1)
+	{
+		if (issorted(data.stack1) && data.stack2[0] == STOP)
+			break ;
+		while (stoplen(data.stack2) > 25)
+			data = split2(data, &data.stack2, &data.stack1, stoplen(data.stack2));
+		while (data.stack2[0] != STOP)
+		{
+			data = push_to_a(data);
+		}
+		printf("%lld\n", data.slice->threshold[data.slice->i]);
+		data = second_push(data);
+	}
 	return (data);
 }
