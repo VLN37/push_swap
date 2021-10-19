@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/19 10:27:48 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/19 10:44:38 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 typedef struct s_slice
 {
-	long long	threshold;
-	int	i;
+	long long	threshold[50];
+	int			i;
 }	t_slice;
 
 typedef struct s_data

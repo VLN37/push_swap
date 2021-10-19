@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/19 09:11:27 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/19 10:46:41 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_data	init(int argc, char **argv, t_data data, t_slice slice)
 {
 	int		i;
 
-	data.thresholds = &slice;
+	data.slice = &slice;
 	slice.i = 0;
 	data.trial = NULL;
 	data.best = NULL;
