@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 00:14:36 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/18 09:55:19 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/19 15:02:26 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	get_direction(t_data data, long long *stack)
 			break ;
 		i++;
 	}
-	if (j < i)
+	if (j <= i)
 		return (LEFT);
 	return (RIGHT);
 }

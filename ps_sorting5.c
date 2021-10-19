@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:19:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/19 14:32:51 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/19 14:56:57 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,6 @@ t_data	push_to_a(t_data data)
 	data.stack2max = get_max2(data.stack2);
 	while (data.stack2[0] != STOP)
 	{
-		data.direction = get_direction(data, data.stack2);
 		if (data.stack2[0] == data.stack2min)
 			data = push_to_sorted(data, 2);
 		if (data.stack2[0] == data.stack2max)
@@ -124,6 +123,7 @@ t_data	push_to_a(t_data data)
 		}
 		else
 		{
+			data.direction = get_direction(data, data.stack2);
 			if (data.direction == RIGHT)
 				data = game("rb\n", data, &data.trialiter);
 			else
