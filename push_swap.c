@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 17:34:21 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 17:52:09 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,15 @@
 void	*init(int argc, char **argv, t_data *data)
 {
 	dprintf(3, "%d\n", open("./log.txt", O_CREAT | O_RDWR, 0777));
-
-
 	data->slice = (t_slice *)malloc(sizeof(t_slice));
 	data->slice->i = 0;
 	data->sortedindex = 0;
 	data->iter = 0;
 	data->res = NULL;
-	data->nbr_count = argc - 1;
-	data->backup = (long long *)malloc(sizeof(long long) * (data->nbr_count + 1));
-	data->stk1 = (long long *)malloc(sizeof(long long) * (data->nbr_count + 1));
-	data->stk2 = (long long *)malloc(sizeof(long long) * (data->nbr_count + 1));
+	data->size = argc - 1;
+	data->backup = (long long *)malloc(sizeof(long long) * (data->size + 1));
+	data->stk1 = (long long *)malloc(sizeof(long long) * (data->size + 1));
+	data->stk2 = (long long *)malloc(sizeof(long long) * (data->size + 1));
 	argvtoint(argc, argv, data);
 	data->sorted = selection_sort(data->stk1, stoplen(data->stk1));
 	data->stkmed = get_median(data->stk1, stoplen(data->stk1));
@@ -52,7 +50,7 @@ void	printstacks(t_data *data)
 
 void	choose_algo(t_data *data)
 {
-	if (data->nbr_count <= 11)
+	if (data->size <= 11)
 		algo_short(data);
 	else
 		algo_long(data);

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:19:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 17:37:34 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 18:49:53 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@ void	push_to_sorted(t_data *data, int from)
 {
 	if (from == 1)
 	{
-		game("ra\n", data, &data->iter);
+		game("ra\n", data);
 		++data->sortedindex;
 	}
 	if (from == 2)
 	{
-		game("pa\n", data, &data->iter);
-		game("ra\n", data, &data->iter);
+		game("pa\n", data);
+		game("ra\n", data);
 		data->stk2min = get_min(data->stk2);
 		data->stk2max = get_max(data->stk2);
 		++data->sortedindex;
 	}
 }
 
-void	split2(t_data *data, long long **from, long long **to, long long len)
+void	return_to_a(t_data *data, long long **from, long long len)
 {
 	int			median;
 	long long	*tmp;
@@ -43,14 +43,14 @@ void	split2(t_data *data, long long **from, long long **to, long long len)
 		if ((*from)[0] == data->stk2min)
 			push_to_sorted(data, 2);
 		if ((*from)[0] > tmp[median - 1])
-			game("pa\n", data, &data->iter);
+			game("pa\n", data);
 		else
-			game("rb\n", data, &data->iter);
+			game("rb\n", data);
 	}
 	free(tmp);
 }
 
-void	split(t_data *data, long long **from, long long **to, long long len)
+void	initial_split(t_data *data, long long **from, long long len)
 {
 	int			median;
 	long long	*tmp;
@@ -59,22 +59,15 @@ void	split(t_data *data, long long **from, long long **to, long long len)
 	tmp = selection_sort(*from, len);
 	while (len--)
 	{
-		// if ((*from)[0] == data->sorted[data->sortedindex])
-		// {
-		// 	printf("%lld\n", data->sorted[data->sortedindex]);
-		// 	push_to_sorted(data, 1);
-		// 	++data->sortedindex;
-		// 	len--;
-		// }
-		if ((*from)[0] < tmp[median - 1])
-			game("pb\n", data, &data->iter);
+		if ((*from)[0] < tmp[median])
+			game("pb\n", data);
 		else
-			game("ra\n", data, &data->iter);
+			game("ra\n", data);
 	}
 	free(tmp);
 }
 
-void	second_push(t_data *data)
+void	feed_b(t_data *data)
 {
 	if (data->slice->threshold[data->slice->i] == STOP)
 	{
@@ -83,7 +76,7 @@ void	second_push(t_data *data)
 			if (data->stk1[0] == data->sorted[data->sortedindex])
 				push_to_sorted(data, 1);
 			else
-				game("pb\n", data, &data->iter);
+				game("pb\n", data);
 		}
 	}
 	else
@@ -93,7 +86,7 @@ void	second_push(t_data *data)
 			if (data->stk1[0] == data->sorted[data->sortedindex])
 				push_to_sorted(data, 1);
 			else
-				game("pb\n", data, &data->iter);
+				game("pb\n", data);
 		}
 		--data->slice->i;
 	}
@@ -110,9 +103,9 @@ void	push_to_a(t_data *data)
 	{
 		if (data->stk2[0] == data->stk2min)
 			push_to_sorted(data, 2);
-		if (data->stk2[0] == data->stk2max)
+		else if (data->stk2[0] == data->stk2max)
 		{
-			game("pa\n", data, &data->iter);
+			game("pa\n", data);
 			data->stk2max = get_max(data->stk2);
 			++data->sortedindex;
 			++i;
@@ -121,13 +114,13 @@ void	push_to_a(t_data *data)
 		{
 			data->direction = get_direction(data, data->stk2);
 			if (data->direction == RIGHT)
-				game("rb\n", data, &data->iter);
+				game("rb\n", data);
 			else
-				game("rrb\n", data, &data->iter);
+				game("rrb\n", data);
 		}
 	}
 	while (i--)
-		game("ra\n", data, &data->iter);
+		game("ra\n", data);
 }
 
 void	algo_long(t_data *data)
@@ -135,15 +128,15 @@ void	algo_long(t_data *data)
 	if (issorted(data->stk1))
 		return ;
 	data->slice->threshold[data->slice->i] = STOP;
-	split(data, &data->stk1, &data->stk2, stoplen(data->stk1));
+	initial_split(data, &data->stk1, stoplen(data->stk1));
 	while (1)
 	{
 		if (issorted(data->stk1) && data->stk2[0] == STOP)
 			break ;
-		while (stoplen(data->stk2) > 26)
-			split2(data, &data->stk2, &data->stk1, stoplen(data->stk2));
+		while (stoplen(data->stk2) > SLICE)
+			return_to_a(data, &data->stk2, stoplen(data->stk2));
 		while (data->stk2[0] != STOP)
 			push_to_a(data);
-		second_push(data);
+		feed_b(data);
 	}
 }

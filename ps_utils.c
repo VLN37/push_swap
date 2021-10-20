@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:08:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 17:38:42 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 17:39:46 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,9 @@ int	get_direction(t_data *data, long long *stk)
 	i = 0;
 	while (j < len)
 	{
-		if (stk[len - j - 1] == data->stk2max \
-		|| stk[len - j - 1] == data->stk2min)
+		if (stk[len - j - 1] == data->stk2max)
+			break ;
+		if (stk[len - j - 1] == data->stk2min)
 			break ;
 		j++;
 	}

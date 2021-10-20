@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 12:56:20 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 17:12:44 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 17:48:33 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,6 @@ void	validation(int argc, char **argv, t_data *data)
 {
 	if (!isargvdigits(argc, argv))
 		cleanup(data, EXIT_FAILURE);
-	// printf("%lld", data->stk1[0]);
-	printf("here\n");
 	if (!isarrayint(data->stk1, argc))
 		cleanup(data, EXIT_FAILURE);
 	if (!isarrayunique(data->stk1))

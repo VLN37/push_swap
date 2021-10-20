@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 21:01:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 17:02:36 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 18:41:51 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,25 @@ void	sortb(t_data *data)
 		if (issorted_rev(data->stk2))
 		{
 			while (data->stk2[0] != STOP)
-				game("pa\n", data, &data->iter);
+				game("pa\n", data);
 			break ;
 		}
 		if (data->stk2[0] == data->stk2max)
 		{
-			game("pa\n", data, &data->iter);
+			game("pa\n", data);
 			data->stk2max = get_max(data->stk2);
 			data->direction = get_direction(data, data->stk2);
 		}
 		else if (data->stk2[0] == data->stkmin && data->direction == RIGHT)
-			game("rb\n", data, &data->iter);
+			game("rb\n", data);
 		else if (data->stk2[0] == data->stkmin && data->direction == LEFT)
-			game("rrb\n", data, &data->iter);
+			game("rrb\n", data);
 		else if (data->stk2[0] < data->stk2[1])
-			game("sb\n", data, &data->iter);
+			game("sb\n", data);
 		else if (data->direction == LEFT)
-			game("rrb\n", data, &data->iter);
+			game("rrb\n", data);
 		else
-			game("rb\n", data, &data->iter);
+			game("rb\n", data);
 		if (DEBUG)
 			printstacks(data);
 	}
@@ -58,16 +58,16 @@ void	algo_short(t_data *data)
 				sortb(data);
 		}
 		else if (data->stk1[0] == data->stk1max)
-			game("ra\n", data, &data->iter);
+			game("ra\n", data);
 		else if (data->stk1[0] > data->stk1[1] && \
 		data->stk2[0] < data->stk2[1] && data->stk2[0] != data->stkmin)
-			game("ss\n", data, &data->iter);
+			game("ss\n", data);
 		else if (data->stk1[0] > data->stk1[1])
-			game("sa\n", data, &data->iter);
+			game("sa\n", data);
 		else if (data->stk1[0] <= data->stkmed)
-			game("pb\n", data, &data->iter);
+			game("pb\n", data);
 		else
-			game("rr\n", data, &data->iter);
+			game("rr\n", data);
 		if (DEBUG)
 			printstacks(data);
 	}

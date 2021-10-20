@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 16:58:14 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 18:41:14 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_data
 	long long	stkmax;
 	long long	stkmed;
 	int			direction;
-	int			nbr_count;
+	int			size;
 	char		*res;
 	int			iter;
 	t_slice		*slice;
@@ -49,9 +49,10 @@ typedef struct s_data
 # endif
 
 # ifndef DEBUG
-#  define DEBUG 1
+#  define DEBUG 0
 # endif
 
+# define SLICE 26
 # define LEFT 0
 # define RIGHT 1
 # define STOP 2147483648
@@ -70,7 +71,7 @@ void		algo_long(t_data *data);
 void		algo_short(t_data *data);
 void		validation(int argc, char **argv, t_data *data);
 void		argvtoint(int argc, char **argv, t_data *data);
-void		game(char *str, t_data *data, int *iter);
+void		game(char *str, t_data *data);
 void		cleanup(t_data *data, int error);
 void		reset(t_data *data);
 void		printstacks(t_data *data);

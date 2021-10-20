@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 00:14:36 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 12:04:58 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 18:40:23 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ long long	get_median(long long *arr, int len)
 {
 	long long	ret;
 	long long	*tmp;
-	int			median;
 
 	tmp = selection_sort(arr, len);
 	ret = tmp[(len / 2) - 1];

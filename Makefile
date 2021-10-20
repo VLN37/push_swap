@@ -16,7 +16,7 @@ SRCS		= push_swap.c \
 OBJ			= $(SRCS:.c=.o)
 
 NAME		= push_swap
-CC			= clang -g
+CC			= clang
 RM			= rm -f
 CFLAGS		= -Wall -Wextra -Werror
 LINKS		= -I $(LIBFTPATH) -L $(LIBFTPATH) -lft
@@ -24,12 +24,12 @@ LINKS		= -I $(LIBFTPATH) -L $(LIBFTPATH) -lft
 
 all:		$(NAME)
 
-$(NAME):	$(OBJ) push_swap.h
+$(NAME):	push_swap.h $(OBJ)
 			make -C $(LIBFTPATH) all
 			$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LINKS)
 
-.c.o:
-			$(CC) -c $< -o $(<:.c=.o)
+.c.o:		push_swap.h
+			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 clean:
 			$(RM) $(OBJ)

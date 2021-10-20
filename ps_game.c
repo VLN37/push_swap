@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 16:29:37 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 17:05:56 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 18:41:04 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*ft_realloc(char *old, char *append)
 	return (new);
 }
 
-void	game(char *str, t_data *data, int *iter)
+void	game(char *str, t_data *data)
 {
 	if (!ft_strncmp(str, "sa\n", 3))
 		swap(data->stk1);
@@ -73,4 +73,6 @@ void	game(char *str, t_data *data, int *iter)
 	}
 	data->res = ft_realloc(data->res, str);
 	data->iter++;
+	if (DEBUG)
+		printstacks(data);
 }
