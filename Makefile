@@ -9,7 +9,9 @@ SRCS		= push_swap.c \
 			  ps_rules.c \
 			  ps_game.c \
 			  ps_sorting_short.c \
-			  ps_sorting_long.c
+			  ps_sorting_long.c \
+			  ps_sorting_long2.c
+
 
 
 #SOURCES		= $(addprefix $(SOURCES_DIR/, $(SRCS)))

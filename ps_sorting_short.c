@@ -6,13 +6,20 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 21:01:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 18:41:51 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 18:55:35 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sortb(t_data *data)
+static void	get_new_metrics(t_data *data)
+{
+	game("pa\n", data);
+	data->stk2max = get_max(data->stk2);
+	data->direction = get_direction(data, data->stk2);
+}
+
+static void	sortb(t_data *data)
 {
 	data->stk2max = get_max(data->stk2);
 	while (1)
@@ -24,11 +31,7 @@ void	sortb(t_data *data)
 			break ;
 		}
 		if (data->stk2[0] == data->stk2max)
-		{
-			game("pa\n", data);
-			data->stk2max = get_max(data->stk2);
-			data->direction = get_direction(data, data->stk2);
-		}
+			get_new_metrics(data);
 		else if (data->stk2[0] == data->stkmin && data->direction == RIGHT)
 			game("rb\n", data);
 		else if (data->stk2[0] == data->stkmin && data->direction == LEFT)
@@ -39,8 +42,6 @@ void	sortb(t_data *data)
 			game("rrb\n", data);
 		else
 			game("rb\n", data);
-		if (DEBUG)
-			printstacks(data);
 	}
 }
 

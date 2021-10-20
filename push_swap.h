@@ -6,12 +6,18 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 18:41:14 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 19:09:22 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+# include "libft.h"
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
 
 typedef struct s_slice
 {
@@ -57,12 +63,6 @@ typedef struct s_data
 # define RIGHT 1
 # define STOP 2147483648
 
-#include "libft.h"
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h>
-
 void		push(long long *src, long long *dest);
 void		swap(long long *stk);
 void		rotate(long long *stk);
@@ -83,5 +83,7 @@ long long	get_max(long long *stk);
 int			get_direction(t_data *data, long long *stk);
 int			issorted(long long *stk);
 int			issorted_rev(long long *stk);
+void		push_to_sorted(t_data *data, int from);
+void		initial_split(t_data *data, long long **from, long long len);
 
 #endif

@@ -6,28 +6,11 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:19:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 18:49:53 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 19:04:00 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	push_to_sorted(t_data *data, int from)
-{
-	if (from == 1)
-	{
-		game("ra\n", data);
-		++data->sortedindex;
-	}
-	if (from == 2)
-	{
-		game("pa\n", data);
-		game("ra\n", data);
-		data->stk2min = get_min(data->stk2);
-		data->stk2max = get_max(data->stk2);
-		++data->sortedindex;
-	}
-}
 
 void	return_to_a(t_data *data, long long **from, long long len)
 {
@@ -46,23 +29,6 @@ void	return_to_a(t_data *data, long long **from, long long len)
 			game("pa\n", data);
 		else
 			game("rb\n", data);
-	}
-	free(tmp);
-}
-
-void	initial_split(t_data *data, long long **from, long long len)
-{
-	int			median;
-	long long	*tmp;
-
-	median = len / 2;
-	tmp = selection_sort(*from, len);
-	while (len--)
-	{
-		if ((*from)[0] < tmp[median])
-			game("pb\n", data);
-		else
-			game("ra\n", data);
 	}
 	free(tmp);
 }
@@ -92,7 +58,15 @@ void	feed_b(t_data *data)
 	}
 }
 
-void	push_to_a(t_data *data)
+static void	get_new_max(t_data *data, int *i)
+{
+	game("pa\n", data);
+	data->stk2max = get_max(data->stk2);
+	++data->sortedindex;
+	++*i;
+}
+
+static void	push_to_a(t_data *data)
 {
 	int	i;
 
@@ -104,12 +78,7 @@ void	push_to_a(t_data *data)
 		if (data->stk2[0] == data->stk2min)
 			push_to_sorted(data, 2);
 		else if (data->stk2[0] == data->stk2max)
-		{
-			game("pa\n", data);
-			data->stk2max = get_max(data->stk2);
-			++data->sortedindex;
-			++i;
-		}
+			get_new_max(data, &i);
 		else
 		{
 			data->direction = get_direction(data, data->stk2);
