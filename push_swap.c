@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/19 14:09:24 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 09:50:19 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,9 @@ int	main(int argc, char **argv)
 	if (!validation(argc, argv, data))
 		return (1);
 
-	data = algo1(data);
+	// data = algo1(data);
+
+	data = algo2(data);
 
 	// data = bubble(data);
 	// printstacks(data);

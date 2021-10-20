@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 21:01:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/15 05:58:54 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 09:48:01 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_data	sortb(t_data data)
 	return (data);
 }
 
-t_data	algo1(t_data data)
+t_data	algo2(t_data data)
 {
 	data.stackmin = get_min(data.stack1);
 	data.stack1max = get_max(data.stack1, &data.direction);
