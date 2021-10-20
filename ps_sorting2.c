@@ -6,37 +6,15 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:09:30 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/15 05:59:17 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 10:10:45 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	issorted_rev(long long *stack)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 1;
-	while (stack[i] != STOP)
-	{
-		while (stack[j] != STOP)
-		{
-			if (stack[i] < stack[j])
-				return (0);
-			else
-				j++;
-		}
-		i++;
-		j = i + 1;
-	}
-	return (1);
-}
-
 t_data	sortb(t_data data)
 {
-	printf("here\n");
+	// printf("here\n");
 	data.stack2max = get_max(data.stack2, &data.direction);
 	while (1)
 	{
@@ -63,14 +41,14 @@ t_data	sortb(t_data data)
 	return (data);
 }
 
-t_data	algo1(t_data data)
+t_data	algo3(t_data data)
 {
 	data.stack1max = get_max(data.stack1, &data.direction);
 	while (1)
 	{
 		if (issorted(data.stack1))
 		{
-			if (issorted_rev(data.stack2))
+			if (issorted_rev(data.stack2) && data.stack2[0] == STOP)
 				break ;
 			else
 				data = sortb(data);

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 09:50:19 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 10:56:40 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,10 @@ int	main(int argc, char **argv)
 
 	// data = algo1(data);
 
-	data = algo2(data);
+	else if (data.nbr_count <= 11)
+		data = algo3(data);
+	else
+		data = algo1(data);
 
 	// data = bubble(data);
 	// printstacks(data);

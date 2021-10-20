@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:19:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/19 16:12:14 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 10:55:45 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,8 @@ t_data	algo1(t_data data)
 	int	min;
 	int	max;
 
+	if (issorted(data.stack1))
+		return (data);
 	data.slice->threshold[data.slice->i] = STOP;
 	data = split(data, &data.stack1, &data.stack2, stoplen(data.stack1));
 	while (1)
