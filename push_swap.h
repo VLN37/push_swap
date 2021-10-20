@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 11:15:25 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:35:55 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,8 @@ typedef struct s_data
 	long long	stackmax;
 	long long	stackmedian;
 	long long	push;
-	int			y;
 	int			direction;
 	int			nbr_count;
-	char		*best;
-	int			bestiter;
 	char		*trial;
 	int			trialiter;
 	t_slice		*slice;
@@ -72,11 +69,12 @@ void		push(long long *src, long long *dest);
 void		swap(long long *stack);
 void		rotate(long long *stack);
 void		rev_rotate(long long *stack);
-int			validation(int argc, char **argv, t_data data);
+t_data		algo_long(t_data data);
+t_data		algo_short(t_data data);
+void		validation(int argc, char **argv, t_data data);
 t_data		argvtoint(int argc, char **argv, t_data data);
 t_data		game(char *str, t_data data, int *iter);
 void		cleanup(t_data data, int error);
-t_data		bubble(t_data data);
 void		printstacks(t_data data);
 long long	*selection_sort(long long *arr, int len);
 void		reset(t_data *data);
@@ -87,9 +85,5 @@ long long	get_max(long long *stack);
 int			get_direction(t_data data, long long *stack);
 int			issorted(long long *stack);
 int			issorted_rev(long long *stack);
-t_data		algo_long(t_data data);
-t_data		algo2(t_data data);
-t_data		algo_short(t_data data);
-long long	stopperlen(long long *stack, long long stopper);
 
 #endif

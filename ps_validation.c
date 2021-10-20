@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 12:56:20 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/09 15:14:30 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:42:03 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,12 @@ int	isarrayunique(long long *arr)
 	return (1);
 }
 
-int	validation(int argc, char **argv, t_data data)
+void	validation(int argc, char **argv, t_data data)
 {
 	if (!isargvdigits(argc, argv))
-		return (0);
+		cleanup(data, EXIT_FAILURE);
 	if (!isarrayint(data.stack1, argc))
-		return (0);
+		cleanup(data, EXIT_FAILURE);
 	if (!isarrayunique(data.stack1))
-		return (0);
-	return (1);
+		cleanup(data, EXIT_FAILURE);
 }
