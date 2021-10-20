@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 12:56:20 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 11:42:03 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 12:03:17 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ void	validation(int argc, char **argv, t_data data)
 {
 	if (!isargvdigits(argc, argv))
 		cleanup(data, EXIT_FAILURE);
-	if (!isarrayint(data.stack1, argc))
+	if (!isarrayint(data.stk1, argc))
 		cleanup(data, EXIT_FAILURE);
-	if (!isarrayunique(data.stack1))
+	if (!isarrayunique(data.stk1))
 		cleanup(data, EXIT_FAILURE);
 }

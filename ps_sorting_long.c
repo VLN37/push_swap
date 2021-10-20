@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:19:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 11:58:30 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 12:03:38 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ t_data	push_to_sorted(t_data data, int from)
 	{
 		data = game("pa\n", data, &data.trialiter);
 		data = game("ra\n", data, &data.trialiter);
-		data.stk2min = get_min(data.stack2);
-		data.stk2max = get_max(data.stack2);
+		data.stk2min = get_min(data.stk2);
+		data.stk2max = get_max(data.stk2);
 		++data.sortedindex;
 	}
 	return (data);
@@ -35,9 +35,9 @@ t_data	split2(t_data data, long long **from, long long **to, long long len)
 	int			median;
 	long long	*tmp;
 
-	data.slice->threshold[++data.slice->i] = data.stack1[0];
+	data.slice->threshold[++data.slice->i] = data.stk1[0];
 	median = len / 2;
-	data.stk2min = get_min(data.stack2);
+	data.stk2min = get_min(data.stk2);
 	tmp = selection_sort(*from, len);
 	while (len--)
 	{
@@ -81,9 +81,9 @@ t_data	second_push(t_data data)
 {
 	if (data.slice->threshold[data.slice->i] == STOP)
 	{
-		while (data.stack1[0] != data.stkmin)
+		while (data.stk1[0] != data.stkmin)
 		{
-			if (data.stack1[0] == data.sorted[data.sortedindex])
+			if (data.stk1[0] == data.sorted[data.sortedindex])
 				data = push_to_sorted(data, 1);
 			else
 				data = game("pb\n", data, &data.trialiter);
@@ -91,9 +91,9 @@ t_data	second_push(t_data data)
 	}
 	else
 	{
-		while (data.stack1[0] != data.slice->threshold[data.slice->i])
+		while (data.stk1[0] != data.slice->threshold[data.slice->i])
 		{
-			if (data.stack1[0] == data.sorted[data.sortedindex])
+			if (data.stk1[0] == data.sorted[data.sortedindex])
 				data = push_to_sorted(data, 1);
 			else
 				data = game("pb\n", data, &data.trialiter);
@@ -108,22 +108,22 @@ t_data	push_to_a(t_data data)
 	int	i;
 
 	i = 0;
-	data.stk2min = get_min(data.stack2);
-	data.stk2max = get_max(data.stack2);
-	while (data.stack2[0] != STOP)
+	data.stk2min = get_min(data.stk2);
+	data.stk2max = get_max(data.stk2);
+	while (data.stk2[0] != STOP)
 	{
-		if (data.stack2[0] == data.stk2min)
+		if (data.stk2[0] == data.stk2min)
 			data = push_to_sorted(data, 2);
-		if (data.stack2[0] == data.stk2max)
+		if (data.stk2[0] == data.stk2max)
 		{
 			data = game("pa\n", data, &data.trialiter);
-			data.stk2max = get_max(data.stack2);
+			data.stk2max = get_max(data.stk2);
 			++data.sortedindex;
 			++i;
 		}
 		else
 		{
-			data.direction = get_direction(data, data.stack2);
+			data.direction = get_direction(data, data.stk2);
 			if (data.direction == RIGHT)
 				data = game("rb\n", data, &data.trialiter);
 			else
@@ -137,17 +137,17 @@ t_data	push_to_a(t_data data)
 
 t_data	algo_long(t_data data)
 {
-	if (issorted(data.stack1))
+	if (issorted(data.stk1))
 		return (data);
 	data.slice->threshold[data.slice->i] = STOP;
-	data = split(data, &data.stack1, &data.stack2, stoplen(data.stack1));
+	data = split(data, &data.stk1, &data.stk2, stoplen(data.stk1));
 	while (1)
 	{
-		if (issorted(data.stack1) && data.stack2[0] == STOP)
+		if (issorted(data.stk1) && data.stk2[0] == STOP)
 			break ;
-		while (stoplen(data.stack2) > 26)
-			data = split2(data, &data.stack2, &data.stack1, stoplen(data.stack2));
-		while (data.stack2[0] != STOP)
+		while (stoplen(data.stk2) > 26)
+			data = split2(data, &data.stk2, &data.stk1, stoplen(data.stk2));
+		while (data.stk2[0] != STOP)
 			data = push_to_a(data);
 		data = second_push(data);
 	}

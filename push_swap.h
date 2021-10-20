@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 12:02:03 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 12:07:02 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ typedef struct s_data
 	long long	*sorted;
 	int			sortedindex;
 	long long	*backup;
-	long long	*stack1;
-	long long	*stack2;
+	long long	*stk1;
+	long long	*stk2;
 	long long	stk1max;
 	long long	stk2max;
 	long long	stk1min;
@@ -63,9 +63,9 @@ typedef struct s_data
 #include <fcntl.h>
 
 void		push(long long *src, long long *dest);
-void		swap(long long *stack);
-void		rotate(long long *stack);
-void		rev_rotate(long long *stack);
+void		swap(long long *stk);
+void		rotate(long long *stk);
+void		rev_rotate(long long *stk);
 t_data		algo_long(t_data data);
 t_data		algo_short(t_data data);
 void		validation(int argc, char **argv, t_data data);
@@ -75,12 +75,12 @@ void		cleanup(t_data data, int error);
 void		reset(t_data *data);
 void		printstacks(t_data data);
 long long	*selection_sort(long long *arr, int len);
-long long	stoplen(long long *stack);
-long long	get_min(long long *stack);
+long long	stoplen(long long *stk);
+long long	get_min(long long *stk);
 long long	get_median(long long *arr, int len);
-long long	get_max(long long *stack);
-int			get_direction(t_data data, long long *stack);
-int			issorted(long long *stack);
-int			issorted_rev(long long *stack);
+long long	get_max(long long *stk);
+int			get_direction(t_data data, long long *stk);
+int			issorted(long long *stk);
+int			issorted_rev(long long *stk);
 
 #endif

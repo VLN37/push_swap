@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 20:45:01 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/15 02:46:38 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 12:04:58 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,39 +27,39 @@ void	push(long long *src, long long *dest)
 	src[srclen - 1] = STOP;
 }
 
-void	swap(long long *stack)
+void	swap(long long *stk)
 {
 	long long	holder;
 
-	if (stack[0] == STOP || stack[1] == STOP)
+	if (stk[0] == STOP || stk[1] == STOP)
 		return ;
-	holder = stack[0];
-	stack[0] = stack[1];
-	stack[1] = holder;
+	holder = stk[0];
+	stk[0] = stk[1];
+	stk[1] = holder;
 }
 
-void	rotate(long long *stack)
+void	rotate(long long *stk)
 {
 	long long	holder;
 	int			len;
 
-	len = stoplen(stack);
+	len = stoplen(stk);
 	if (len < 2)
 		return ;
-	holder = stack[0];
-	ft_memmove(stack, &stack[1], (len - 1) * sizeof(long long));
-	stack[len - 1] = holder;
+	holder = stk[0];
+	ft_memmove(stk, &stk[1], (len - 1) * sizeof(long long));
+	stk[len - 1] = holder;
 }
 
-void	rev_rotate(long long *stack)
+void	rev_rotate(long long *stk)
 {
 	long long	holder;
 	int			len;
 
-	len = stoplen(stack);
+	len = stoplen(stk);
 	if (len < 2)
 		return ;
-	holder = stack[len - 1];
-	ft_memmove(&stack[1], stack, (len - 1) * sizeof(long long));
-	stack[0] = holder;
+	holder = stk[len - 1];
+	ft_memmove(&stk[1], stk, (len - 1) * sizeof(long long));
+	stk[0] = holder;
 }

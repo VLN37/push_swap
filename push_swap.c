@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 11:59:34 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 12:07:02 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ t_data	init(int argc, char **argv, t_data data, t_slice slice)
 	data.trial = NULL;
 	data.nbr_count = argc - 1;
 	data.backup = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
-	data.stack1 = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
-	data.stack2 = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
+	data.stk1 = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
+	data.stk2 = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
 	data = argvtoint(argc, argv, data);
-	data.sorted = selection_sort(data.stack1, stoplen(data.stack1));
-	data.stkmed = get_median(data.stack1, stoplen(data.stack1));
-	data.stkmin = get_min(data.stack1);
-	data.stkmax = get_max(data.stack1);
+	data.sorted = selection_sort(data.stk1, stoplen(data.stk1));
+	data.stkmed = get_median(data.stk1, stoplen(data.stk1));
+	data.stkmin = get_min(data.stk1);
+	data.stkmax = get_max(data.stk1);
 	return (data);
 }
 
@@ -37,14 +37,14 @@ void	printstacks(t_data data)
 	int	i;
 
 	i = 0;
-	dprintf(3, "stack a\n");
-	while (data.stack1[i] != STOP)
-		dprintf(3, "%3lld ", data.stack1[i++]);
+	dprintf(3, "stk a\n");
+	while (data.stk1[i] != STOP)
+		dprintf(3, "%3lld ", data.stk1[i++]);
 	dprintf(3, "\n");
 	i = 0;
-	dprintf(3, "stack b\n");
-	while (data.stack2[i] != STOP)
-		dprintf(3, "%3lld ", data.stack2[i++]);
+	dprintf(3, "stk b\n");
+	while (data.stk2[i] != STOP)
+		dprintf(3, "%3lld ", data.stk2[i++]);
 	dprintf(3, "\n\n");
 }
 

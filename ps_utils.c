@@ -6,62 +6,63 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:08:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 11:55:58 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 12:05:32 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long long	get_max(long long *stack)
+long long	get_max(long long *stk)
 {
 	int	i;
 	int	max;
 
 	i = 0;
 	max = -2147482648;
-	while (stack[i] != STOP)
+	while (stk[i] != STOP)
 	{
-		if (stack[i] > max)
-			max = stack[i];
+		if (stk[i] > max)
+			max = stk[i];
 		++i;
 	}
 	return (max);
 }
 
-long long	get_min(long long *stack)
+long long	get_min(long long *stk)
 {
 	int	i;
 	int	min;
 
 	i = 0;
 	min = 2147483647;
-	while (stack[i] != STOP)
+	while (stk[i] != STOP)
 	{
-		if (stack[i] < min)
-			min = stack[i];
+		if (stk[i] < min)
+			min = stk[i];
 		++i;
 	}
 	return (min);
 }
 
-int	get_direction(t_data data, long long *stack)
+int	get_direction(t_data data, long long *stk)
 {
 	int	i;
 	int	j;
 	int	len;
 
-	len = stoplen(stack);
+	len = stoplen(stk);
 	j = 0;
 	i = 0;
 	while (j < len)
 	{
-		if (stack[len - j - 1] == data.stk2max || stack[len - j - 1] == data.stk2min)
+		if (stk[len - j - 1] == data.stk2max \
+		|| stk[len - j - 1] == data.stk2min)
 			break ;
 		j++;
 	}
-	while (stack[i] != STOP)
+	while (stk[i] != STOP)
 	{
-		if (stack[i] == data.stk2max || stack[i] == data.stk2min)
+		if (stk[i] == data.stk2max || stk[i] == data.stk2min)
 			break ;
 		i++;
 	}
@@ -70,12 +71,12 @@ int	get_direction(t_data data, long long *stack)
 	return (RIGHT);
 }
 
-long long	stoplen(long long *stack)
+long long	stoplen(long long *stk)
 {
 	int	i;
 
 	i = 0;
-	while (stack[i] != STOP)
+	while (stk[i] != STOP)
 		i++;
 	return (i);
 }
@@ -84,8 +85,8 @@ void	cleanup(t_data data, int error)
 {
 	free(data.sorted);
 	free(data.backup);
-	free(data.stack1);
-	free(data.stack2);
+	free(data.stk1);
+	free(data.stk2);
 	free(data.trial);
 	close(3);
 	if (error)

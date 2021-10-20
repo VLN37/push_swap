@@ -6,24 +6,24 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 00:14:36 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 11:13:36 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 12:04:58 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	issorted_rev(long long *stack)
+int	issorted_rev(long long *stk)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 1;
-	while (stack[i] != STOP)
+	while (stk[i] != STOP)
 	{
-		while (stack[j] != STOP)
+		while (stk[j] != STOP)
 		{
-			if (stack[i] < stack[j])
+			if (stk[i] < stk[j])
 				return (0);
 			else
 				j++;
@@ -34,18 +34,18 @@ int	issorted_rev(long long *stack)
 	return (1);
 }
 
-int	issorted(long long *stack)
+int	issorted(long long *stk)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 1;
-	while (stack[i] != STOP)
+	while (stk[i] != STOP)
 	{
-		while (stack[j] != STOP)
+		while (stk[j] != STOP)
 		{
-			if (stack[i] > stack[j])
+			if (stk[i] > stk[j])
 				return (0);
 			else
 				j++;
@@ -56,16 +56,16 @@ int	issorted(long long *stack)
 	return (1);
 }
 
-static long long	get_relative_min(long long *stack, long long curr)
+static long long	get_relative_min(long long *stk, long long curr)
 {
 	long long	min;
 
 	min = STOP;
-	while (*stack != STOP)
+	while (*stk != STOP)
 	{
-		if (*stack < min && *stack > curr)
-			min = *stack;
-		stack++;
+		if (*stk < min && *stk > curr)
+			min = *stk;
+		stk++;
 	}
 	return (min);
 }
