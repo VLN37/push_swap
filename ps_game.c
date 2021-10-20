@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 16:29:37 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/19 20:04:54 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:48:55 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,6 @@ t_data	game(char *str, t_data data, int *iter)
 		ft_putstr_fd("Error\n", 2);
 		cleanup(data, EXIT_FAILURE);
 	}
-	if (DEBUG)
-		printstacks(data);
 	data.trial = ft_realloc(data.trial, str);
 	data.trialiter++;
 	return (data);

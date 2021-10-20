@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:08:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 11:13:10 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:48:09 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,8 @@ int	get_direction(t_data data, long long *stack)
 	while (j < len)
 	{
 		if (stack[len - j - 1] == data.stack2max || stack[len - j - 1] == data.stack2min)
-			break;
+			break ;
 		j++;
-
 	}
 	while (stack[i] != STOP)
 	{

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 21:01:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 11:15:16 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:50:27 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ t_data	algo_short(t_data data)
 		}
 		else if (data.stack1[0] == data.stack1max)
 			data = game("ra\n", data, &data.trialiter);
-		else if (data.stack1[0] > data.stack1[1] && data.stack2[0] < data.stack2[1] && data.stack2[0] != data.stackmin)
+		else if (data.stack1[0] > data.stack1[1] && \
+		data.stack2[0] < data.stack2[1] && data.stack2[0] != data.stackmin)
 			data = game("ss\n", data, &data.trialiter);
 		else if (data.stack1[0] > data.stack1[1])
 			data = game("sa\n", data, &data.trialiter);

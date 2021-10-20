@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:19:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 11:15:25 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:52:23 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ t_data	push_to_sorted(t_data data, int from)
 		data.stack2max = get_max(data.stack2);
 		++data.sortedindex;
 	}
-	// printf("%lld \n", data.sorted[data.sortedindex]);
 	return (data);
 }
 
@@ -66,6 +65,7 @@ t_data	split(t_data data, long long **from, long long **to, long long len)
 		// {
 		// 	printf("%lld\n", data.sorted[data.sortedindex]);
 		// 	data = push_to_sorted(data, 1);
+		// 	++data.sortedindex;
 		// 	len--;
 		// }
 		if ((*from)[0] < tmp[median - 1])
@@ -77,7 +77,7 @@ t_data	split(t_data data, long long **from, long long **to, long long len)
 	return (data);
 }
 
-t_data second_push(t_data data)
+t_data	second_push(t_data data)
 {
 	if (data.slice->threshold[data.slice->i] == STOP)
 	{
@@ -137,9 +137,6 @@ t_data	push_to_a(t_data data)
 
 t_data	algo_long(t_data data)
 {
-	int	min;
-	int	max;
-
 	if (issorted(data.stack1))
 		return (data);
 	data.slice->threshold[data.slice->i] = STOP;
