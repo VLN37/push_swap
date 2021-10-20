@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 12:07:02 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 12:15:08 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ typedef struct s_data
 	long long	stkmed;
 	int			direction;
 	int			nbr_count;
-	char		*trial;
-	int			trialiter;
+	char		*res;
+	int			iter;
 	t_slice		*slice;
 }	t_data;
 

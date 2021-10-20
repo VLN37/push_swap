@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:19:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 12:03:38 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 12:14:43 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ t_data	push_to_sorted(t_data data, int from)
 {
 	if (from == 1)
 	{
-		data = game("ra\n", data, &data.trialiter);
+		data = game("ra\n", data, &data.iter);
 		++data.sortedindex;
 	}
 	if (from == 2)
 	{
-		data = game("pa\n", data, &data.trialiter);
-		data = game("ra\n", data, &data.trialiter);
+		data = game("pa\n", data, &data.iter);
+		data = game("ra\n", data, &data.iter);
 		data.stk2min = get_min(data.stk2);
 		data.stk2max = get_max(data.stk2);
 		++data.sortedindex;
@@ -44,9 +44,9 @@ t_data	split2(t_data data, long long **from, long long **to, long long len)
 		if ((*from)[0] == data.stk2min)
 			data = push_to_sorted(data, 2);
 		if ((*from)[0] > tmp[median - 1])
-			data = game("pa\n", data, &data.trialiter);
+			data = game("pa\n", data, &data.iter);
 		else
-			data = game("rb\n", data, &data.trialiter);
+			data = game("rb\n", data, &data.iter);
 	}
 	free(tmp);
 	return (data);
@@ -69,9 +69,9 @@ t_data	split(t_data data, long long **from, long long **to, long long len)
 		// 	len--;
 		// }
 		if ((*from)[0] < tmp[median - 1])
-			data = game("pb\n", data, &data.trialiter);
+			data = game("pb\n", data, &data.iter);
 		else
-			data = game("ra\n", data, &data.trialiter);
+			data = game("ra\n", data, &data.iter);
 	}
 	free(tmp);
 	return (data);
@@ -86,7 +86,7 @@ t_data	second_push(t_data data)
 			if (data.stk1[0] == data.sorted[data.sortedindex])
 				data = push_to_sorted(data, 1);
 			else
-				data = game("pb\n", data, &data.trialiter);
+				data = game("pb\n", data, &data.iter);
 		}
 	}
 	else
@@ -96,7 +96,7 @@ t_data	second_push(t_data data)
 			if (data.stk1[0] == data.sorted[data.sortedindex])
 				data = push_to_sorted(data, 1);
 			else
-				data = game("pb\n", data, &data.trialiter);
+				data = game("pb\n", data, &data.iter);
 		}
 		--data.slice->i;
 	}
@@ -116,7 +116,7 @@ t_data	push_to_a(t_data data)
 			data = push_to_sorted(data, 2);
 		if (data.stk2[0] == data.stk2max)
 		{
-			data = game("pa\n", data, &data.trialiter);
+			data = game("pa\n", data, &data.iter);
 			data.stk2max = get_max(data.stk2);
 			++data.sortedindex;
 			++i;
@@ -125,13 +125,13 @@ t_data	push_to_a(t_data data)
 		{
 			data.direction = get_direction(data, data.stk2);
 			if (data.direction == RIGHT)
-				data = game("rb\n", data, &data.trialiter);
+				data = game("rb\n", data, &data.iter);
 			else
-				data = game("rrb\n", data, &data.trialiter);
+				data = game("rrb\n", data, &data.iter);
 		}
 	}
 	while (i--)
-		data = game("ra\n", data, &data.trialiter);
+		data = game("ra\n", data, &data.iter);
 	return (data);
 }
 

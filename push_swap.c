@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 12:07:02 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 12:15:08 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ t_data	init(int argc, char **argv, t_data data, t_slice slice)
 	data.slice = &slice;
 	slice.i = 0;
 	data.sortedindex = 0;
-	data.trialiter = 0;
-	data.trial = NULL;
+	data.iter = 0;
+	data.res = NULL;
 	data.nbr_count = argc - 1;
 	data.backup = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
 	data.stk1 = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
@@ -65,7 +65,7 @@ int	main(int argc, char **argv)
 	data = init(argc, argv, data, slice);
 	validation(argc, argv, data);
 	data = choose_algo(data);
-	ft_putstr_fd(data.trial, 1);
-	ft_putnbr_fd(data.trialiter, 1);
+	ft_putstr_fd(data.res, 1);
+	ft_putnbr_fd(data.iter, 1);
 	cleanup(data, EXIT_SUCCESS);
 }
