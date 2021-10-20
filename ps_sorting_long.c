@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:19:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 17:07:03 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 17:37:34 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	second_push(t_data *data)
 	}
 }
 
-t_data	push_to_a(t_data *data)
+void	push_to_a(t_data *data)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:08:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 17:00:57 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 17:38:42 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ void	cleanup(t_data *data, int error)
 	free(data->stk1);
 	free(data->stk2);
 	free(data->res);
+	free(data->slice);
+	free(data);
 	close(3);
 	if (error)
 		exit(1);
