@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:08:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 12:15:08 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 17:00:57 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ long long	get_min(long long *stk)
 	return (min);
 }
 
-int	get_direction(t_data data, long long *stk)
+int	get_direction(t_data *data, long long *stk)
 {
 	int	i;
 	int	j;
@@ -55,14 +55,14 @@ int	get_direction(t_data data, long long *stk)
 	i = 0;
 	while (j < len)
 	{
-		if (stk[len - j - 1] == data.stk2max \
-		|| stk[len - j - 1] == data.stk2min)
+		if (stk[len - j - 1] == data->stk2max \
+		|| stk[len - j - 1] == data->stk2min)
 			break ;
 		j++;
 	}
 	while (stk[i] != STOP)
 	{
-		if (stk[i] == data.stk2max || stk[i] == data.stk2min)
+		if (stk[i] == data->stk2max || stk[i] == data->stk2min)
 			break ;
 		i++;
 	}
@@ -81,13 +81,13 @@ long long	stoplen(long long *stk)
 	return (i);
 }
 
-void	cleanup(t_data data, int error)
+void	cleanup(t_data *data, int error)
 {
-	free(data.sorted);
-	free(data.backup);
-	free(data.stk1);
-	free(data.stk2);
-	free(data.res);
+	free(data->sorted);
+	free(data->backup);
+	free(data->stk1);
+	free(data->stk2);
+	free(data->res);
 	close(3);
 	if (error)
 		exit(1);

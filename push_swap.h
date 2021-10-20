@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 12:15:08 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 16:58:14 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,20 +66,20 @@ void		push(long long *src, long long *dest);
 void		swap(long long *stk);
 void		rotate(long long *stk);
 void		rev_rotate(long long *stk);
-t_data		algo_long(t_data data);
-t_data		algo_short(t_data data);
-void		validation(int argc, char **argv, t_data data);
-t_data		argvtoint(int argc, char **argv, t_data data);
-t_data		game(char *str, t_data data, int *iter);
-void		cleanup(t_data data, int error);
+void		algo_long(t_data *data);
+void		algo_short(t_data *data);
+void		validation(int argc, char **argv, t_data *data);
+void		argvtoint(int argc, char **argv, t_data *data);
+void		game(char *str, t_data *data, int *iter);
+void		cleanup(t_data *data, int error);
 void		reset(t_data *data);
-void		printstacks(t_data data);
+void		printstacks(t_data *data);
 long long	*selection_sort(long long *arr, int len);
 long long	stoplen(long long *stk);
 long long	get_min(long long *stk);
 long long	get_median(long long *arr, int len);
 long long	get_max(long long *stk);
-int			get_direction(t_data data, long long *stk);
+int			get_direction(t_data *data, long long *stk);
 int			issorted(long long *stk);
 int			issorted_rev(long long *stk);
 
