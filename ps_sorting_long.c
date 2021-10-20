@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:19:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 11:06:53 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:15:25 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,7 @@ t_data	push_to_a(t_data data)
 	return (data);
 }
 
-t_data	algo1(t_data data)
+t_data	algo_long(t_data data)
 {
 	int	min;
 	int	max;

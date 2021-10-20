@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 11:10:24 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:16:40 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,26 +59,18 @@ int	main(int argc, char **argv)
 	t_data	data;
 	t_slice	slice;
 
-	int i;
-	i = 0;
 	 dprintf(3, "%d\n", open("./log.txt", O_CREAT | O_RDWR, 0777));
 	data = init(argc, argv, data, slice);
 	if (!validation(argc, argv, data))
 		return (1);
 
-	// data = algo1(data);
+	// data = algo_long(data);
 
 	else if (data.nbr_count <= 11)
-		data = algo3(data);
+		data = algo_short(data);
 	else
-		data = algo1(data);
+		data = algo_long(data);
 
-	// data = bubble(data);
-	// printstacks(data);
-	// reset(&data);
-	// printstacks(data);
-	// data = bubble(data);
-	// printstacks(data);
 
 	// printf("median = %lld\n", data.stackmedian);
 	// printf("%d\n", data.trialiter);

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:08:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 11:09:17 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:13:10 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,33 @@ long long	get_min(long long *stack)
 	return (min);
 }
 
+int	get_direction(t_data data, long long *stack)
+{
+	int	i;
+	int	j;
+	int	len;
+
+	len = stoplen(stack);
+	j = 0;
+	i = 0;
+	while (j < len)
+	{
+		if (stack[len - j - 1] == data.stack2max || stack[len - j - 1] == data.stack2min)
+			break;
+		j++;
+
+	}
+	while (stack[i] != STOP)
+	{
+		if (stack[i] == data.stack2max || stack[i] == data.stack2min)
+			break ;
+		i++;
+	}
+	if (j <= i)
+		return (LEFT);
+	return (RIGHT);
+}
+
 long long	stoplen(long long *stack)
 {
 	int	i;
@@ -53,19 +80,6 @@ long long	stoplen(long long *stack)
 		i++;
 	return (i);
 }
-
-void	reset(t_data *data)
-{
-	int	i;
-
-	i = -1;
-	while (data->backup[++i] != STOP)
-		data->stack1[i] = data->backup[i];
-	i = -1;
-	while (++i < data->nbr_count)
-		data->stack2[i] = (long long)STOP;
-}
-
 
 void	cleanup(t_data data, int error)
 {

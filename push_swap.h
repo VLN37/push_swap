@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 11:07:31 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:15:25 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,13 +84,12 @@ long long	stoplen(long long *stack);
 long long	get_min(long long *stack);
 long long	get_median(long long *arr, int len);
 long long	get_max(long long *stack);
-long long	get_max2(long long *stack);
 int			get_direction(t_data data, long long *stack);
 int			issorted(long long *stack);
 int			issorted_rev(long long *stack);
-t_data		algo1(t_data data);
+t_data		algo_long(t_data data);
 t_data		algo2(t_data data);
-t_data		algo3(t_data data);
+t_data		algo_short(t_data data);
 long long	stopperlen(long long *stack, long long stopper);
 
 #endif

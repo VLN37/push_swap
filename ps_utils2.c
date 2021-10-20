@@ -6,38 +6,11 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 00:14:36 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 11:10:01 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:13:36 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	get_direction(t_data data, long long *stack)
-{
-	int	i;
-	int	j;
-	int	len;
-
-	len = stoplen(stack);
-	j = 0;
-	i = 0;
-	while (j < len)
-	{
-		if (stack[len - j - 1] == data.stack2max || stack[len - j - 1] == data.stack2min)
-			break;
-		j++;
-
-	}
-	while (stack[i] != STOP)
-	{
-		if (stack[i] == data.stack2max || stack[i] == data.stack2min)
-			break ;
-		i++;
-	}
-	if (j <= i)
-		return (LEFT);
-	return (RIGHT);
-}
 
 int	issorted_rev(long long *stack)
 {
@@ -83,7 +56,7 @@ int	issorted(long long *stack)
 	return (1);
 }
 
-long long	get_relative_min(long long *stack, long long curr)
+static long long	get_relative_min(long long *stack, long long curr)
 {
 	long long	min;
 
