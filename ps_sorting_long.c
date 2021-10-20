@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_sorting5.c                                      :+:      :+:    :+:   */
+/*   ps_sorting_long.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:19:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 10:55:45 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:06:53 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_data	push_to_sorted(t_data data, int from)
 		data = game("pa\n", data, &data.trialiter);
 		data = game("ra\n", data, &data.trialiter);
 		data.stack2min = get_min(data.stack2);
-		data.stack2max = get_max2(data.stack2);
+		data.stack2max = get_max(data.stack2);
 		++data.sortedindex;
 	}
 	// printf("%lld \n", data.sorted[data.sortedindex]);
@@ -109,7 +109,7 @@ t_data	push_to_a(t_data data)
 
 	i = 0;
 	data.stack2min = get_min(data.stack2);
-	data.stack2max = get_max2(data.stack2);
+	data.stack2max = get_max(data.stack2);
 	while (data.stack2[0] != STOP)
 	{
 		if (data.stack2[0] == data.stack2min)
@@ -117,7 +117,7 @@ t_data	push_to_a(t_data data)
 		if (data.stack2[0] == data.stack2max)
 		{
 			data = game("pa\n", data, &data.trialiter);
-			data.stack2max = get_max2(data.stack2);
+			data.stack2max = get_max(data.stack2);
 			++data.sortedindex;
 			++i;
 		}

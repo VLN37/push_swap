@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 10:03:37 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:07:31 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void		reset(t_data *data);
 long long	stoplen(long long *stack);
 long long	get_min(long long *stack);
 long long	get_median(long long *arr, int len);
-long long	get_max(long long *stack, int *direction);
+long long	get_max(long long *stack);
 long long	get_max2(long long *stack);
 int			get_direction(t_data data, long long *stack);
 int			issorted(long long *stack);

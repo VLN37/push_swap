@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 10:56:40 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:10:24 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_data	init(int argc, char **argv, t_data data, t_slice slice)
 	data.sorted = selection_sort(data.stack1, stoplen(data.stack1));
 	data.stackmedian = get_median(data.stack1, stoplen(data.stack1));
 	data.stackmin = get_min(data.stack1);
-	data.stackmax = get_max(data.stack1, &data.direction);
+	data.stackmax = get_max(data.stack1);
 	return (data);
 }
 

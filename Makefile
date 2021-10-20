@@ -8,7 +8,6 @@ SRCS		= push_swap.c \
 			  ps_utils2.c \
 			  ps_rules.c \
 			  ps_game.c \
-			  ps_sorting.c \
 			  ps_sorting_short.c \
 			  ps_sorting_long.c
 

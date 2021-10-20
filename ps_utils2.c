@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 00:14:36 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/19 15:02:26 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:10:01 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ long long	get_relative_min(long long *stack, long long curr)
 	return (min);
 }
 
-
 //returns a sorted array that needs to be freed
 long long	*selection_sort(long long *arr, int len)
 {
@@ -114,8 +113,6 @@ long long	*selection_sort(long long *arr, int len)
 		ret[++i] = curr;
 	}
 	ret[++i] = STOP;
-	// for (int j = 0; ret[j] != STOP; j++)
-	// 	printf("%lld ", ret[j]);
 	return (ret);
 }
 

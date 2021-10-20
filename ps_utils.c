@@ -6,13 +6,13 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:08:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/18 09:27:57 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:09:17 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long long	get_max2(long long *stack)
+long long	get_max(long long *stack)
 {
 	int	i;
 	int	max;
@@ -25,26 +25,6 @@ long long	get_max2(long long *stack)
 			max = stack[i];
 		++i;
 	}
-	return (max);
-}
-
-long long	get_max(long long *stack, int *direction)
-{
-	int	i;
-	int	max;
-
-	i = 0;
-	max = -2147482648;
-	while (stack[i] != STOP)
-	{
-		if (stack[i] > max)
-			max = stack[i];
-		++i;
-	}
-	if (i >= (stoplen(stack) / 2) - 1)
-		*direction = LEFT;
-	else
-		*direction = RIGHT;
 	return (max);
 }
 
@@ -62,16 +42,6 @@ long long	get_min(long long *stack)
 		++i;
 	}
 	return (min);
-}
-
-long long	stopperlen(long long *stack, long long stopper)
-{
-	int	i;
-
-	i = 0;
-	while (stack[i] != stopper)
-		i++;
-	return (i);
 }
 
 long long	stoplen(long long *stack)

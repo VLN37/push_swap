@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_sorting3.c                                      :+:      :+:    :+:   */
+/*   ps_sorting_short.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 21:01:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 10:59:33 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:08:15 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_data	sortb(t_data data)
 {
-	data.stack2max = get_max(data.stack2, &data.direction);
+	data.stack2max = get_max(data.stack2);
 	while (1)
 	{
 		if (issorted_rev(data.stack2))
@@ -26,7 +26,7 @@ t_data	sortb(t_data data)
 		if (data.stack2[0] == data.stack2max)
 		{
 			data = game("pa\n", data, &data.trialiter);
-			data.stack2max = get_max2(data.stack2);
+			data.stack2max = get_max(data.stack2);
 			data.direction = get_direction(data, data.stack2);
 		}
 		else if (data.stack2[0] == data.stackmin && data.direction == RIGHT)
@@ -48,7 +48,7 @@ t_data	sortb(t_data data)
 t_data	algo3(t_data data)
 {
 	data.stackmin = get_min(data.stack1);
-	data.stack1max = get_max(data.stack1, &data.direction);
+	data.stack1max = get_max(data.stack1);
 	while (1)
 	{
 		if (issorted(data.stack1))
