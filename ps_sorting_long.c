@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:19:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 11:52:23 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:58:30 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ t_data	push_to_sorted(t_data data, int from)
 	{
 		data = game("pa\n", data, &data.trialiter);
 		data = game("ra\n", data, &data.trialiter);
-		data.stack2min = get_min(data.stack2);
-		data.stack2max = get_max(data.stack2);
+		data.stk2min = get_min(data.stack2);
+		data.stk2max = get_max(data.stack2);
 		++data.sortedindex;
 	}
 	return (data);
@@ -37,11 +37,11 @@ t_data	split2(t_data data, long long **from, long long **to, long long len)
 
 	data.slice->threshold[++data.slice->i] = data.stack1[0];
 	median = len / 2;
-	data.stack2min = get_min(data.stack2);
+	data.stk2min = get_min(data.stack2);
 	tmp = selection_sort(*from, len);
 	while (len--)
 	{
-		if ((*from)[0] == data.stack2min)
+		if ((*from)[0] == data.stk2min)
 			data = push_to_sorted(data, 2);
 		if ((*from)[0] > tmp[median - 1])
 			data = game("pa\n", data, &data.trialiter);
@@ -81,7 +81,7 @@ t_data	second_push(t_data data)
 {
 	if (data.slice->threshold[data.slice->i] == STOP)
 	{
-		while (data.stack1[0] != data.stackmin)
+		while (data.stack1[0] != data.stkmin)
 		{
 			if (data.stack1[0] == data.sorted[data.sortedindex])
 				data = push_to_sorted(data, 1);
@@ -108,16 +108,16 @@ t_data	push_to_a(t_data data)
 	int	i;
 
 	i = 0;
-	data.stack2min = get_min(data.stack2);
-	data.stack2max = get_max(data.stack2);
+	data.stk2min = get_min(data.stack2);
+	data.stk2max = get_max(data.stack2);
 	while (data.stack2[0] != STOP)
 	{
-		if (data.stack2[0] == data.stack2min)
+		if (data.stack2[0] == data.stk2min)
 			data = push_to_sorted(data, 2);
-		if (data.stack2[0] == data.stack2max)
+		if (data.stack2[0] == data.stk2max)
 		{
 			data = game("pa\n", data, &data.trialiter);
-			data.stack2max = get_max(data.stack2);
+			data.stk2max = get_max(data.stack2);
 			++data.sortedindex;
 			++i;
 		}

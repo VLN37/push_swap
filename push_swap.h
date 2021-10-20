@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 11:35:55 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 12:02:03 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,13 @@ typedef struct s_data
 	long long	*backup;
 	long long	*stack1;
 	long long	*stack2;
-	long long	stack1max;
-	long long	stack2max;
-	long long	stack1min;
-	long long	stack2min;
-	long long	stackmin;
-	long long	stackmax;
-	long long	stackmedian;
-	long long	push;
+	long long	stk1max;
+	long long	stk2max;
+	long long	stk1min;
+	long long	stk2min;
+	long long	stkmin;
+	long long	stkmax;
+	long long	stkmed;
 	int			direction;
 	int			nbr_count;
 	char		*trial;
@@ -49,15 +48,13 @@ typedef struct s_data
 #  define INT_MIN -2147483648
 # endif
 
-# define LEFT 0
-# define RIGHT 1
-
 # ifndef DEBUG
 #  define DEBUG 1
 # endif
 
+# define LEFT 0
+# define RIGHT 1
 # define STOP 2147483648
-# define SLICE 25
 
 #include "libft.h"
 #include <stdio.h>
@@ -75,9 +72,9 @@ void		validation(int argc, char **argv, t_data data);
 t_data		argvtoint(int argc, char **argv, t_data data);
 t_data		game(char *str, t_data data, int *iter);
 void		cleanup(t_data data, int error);
+void		reset(t_data *data);
 void		printstacks(t_data data);
 long long	*selection_sort(long long *arr, int len);
-void		reset(t_data *data);
 long long	stoplen(long long *stack);
 long long	get_min(long long *stack);
 long long	get_median(long long *arr, int len);

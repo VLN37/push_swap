@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 11:42:25 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:59:34 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ t_data	init(int argc, char **argv, t_data data, t_slice slice)
 	data.stack2 = (long long *)malloc(sizeof(long long) * (data.nbr_count + 1));
 	data = argvtoint(argc, argv, data);
 	data.sorted = selection_sort(data.stack1, stoplen(data.stack1));
-	data.stackmedian = get_median(data.stack1, stoplen(data.stack1));
-	data.stackmin = get_min(data.stack1);
-	data.stackmax = get_max(data.stack1);
+	data.stkmed = get_median(data.stack1, stoplen(data.stack1));
+	data.stkmin = get_min(data.stack1);
+	data.stkmax = get_max(data.stack1);
 	return (data);
 }
 

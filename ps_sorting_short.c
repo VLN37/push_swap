@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 21:01:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 11:50:27 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:59:34 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_data	sortb(t_data data)
 {
-	data.stack2max = get_max(data.stack2);
+	data.stk2max = get_max(data.stack2);
 	while (1)
 	{
 		if (issorted_rev(data.stack2))
@@ -23,15 +23,15 @@ t_data	sortb(t_data data)
 				data = game("pa\n", data, &data.trialiter);
 			break ;
 		}
-		if (data.stack2[0] == data.stack2max)
+		if (data.stack2[0] == data.stk2max)
 		{
 			data = game("pa\n", data, &data.trialiter);
-			data.stack2max = get_max(data.stack2);
+			data.stk2max = get_max(data.stack2);
 			data.direction = get_direction(data, data.stack2);
 		}
-		else if (data.stack2[0] == data.stackmin && data.direction == RIGHT)
+		else if (data.stack2[0] == data.stkmin && data.direction == RIGHT)
 			data = game("rb\n", data, &data.trialiter);
-		else if (data.stack2[0] == data.stackmin && data.direction == LEFT)
+		else if (data.stack2[0] == data.stkmin && data.direction == LEFT)
 			data = game("rrb\n", data, &data.trialiter);
 		else if (data.stack2[0] < data.stack2[1])
 			data = game("sb\n", data, &data.trialiter);
@@ -47,8 +47,8 @@ t_data	sortb(t_data data)
 
 t_data	algo_short(t_data data)
 {
-	data.stackmin = get_min(data.stack1);
-	data.stack1max = get_max(data.stack1);
+	data.stkmin = get_min(data.stack1);
+	data.stk1max = get_max(data.stack1);
 	while (1)
 	{
 		if (issorted(data.stack1))
@@ -58,14 +58,14 @@ t_data	algo_short(t_data data)
 			else
 				data = sortb(data);
 		}
-		else if (data.stack1[0] == data.stack1max)
+		else if (data.stack1[0] == data.stk1max)
 			data = game("ra\n", data, &data.trialiter);
 		else if (data.stack1[0] > data.stack1[1] && \
-		data.stack2[0] < data.stack2[1] && data.stack2[0] != data.stackmin)
+		data.stack2[0] < data.stack2[1] && data.stack2[0] != data.stkmin)
 			data = game("ss\n", data, &data.trialiter);
 		else if (data.stack1[0] > data.stack1[1])
 			data = game("sa\n", data, &data.trialiter);
-		else if (data.stack1[0] <= data.stackmedian)
+		else if (data.stack1[0] <= data.stkmed)
 			data = game("pb\n", data, &data.trialiter);
 		else
 			data = game("rr\n", data, &data.trialiter);
