@@ -4,6 +4,7 @@
 #include "libft.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <limits.h>
 
 # define STOP 2147483648
 # define EXIT_KO 2
@@ -27,7 +28,6 @@ int			issorted(long long *stk);
 long long	stoplen(long long *stk);
 void		parse_input(t_data *data);
 void		argvtoint(int argc, char **argv, t_data *data);
-
-
+void		validate_checker(t_data *data, int argc, char **argv);
 
 #endif

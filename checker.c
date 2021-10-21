@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 05:30:18 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/21 10:40:13 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/21 11:38:44 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	init(t_data *data, int argc, char **argv)
 {
+	// data->instructions = NULL;
+	// data->instructions[0] = NULL;
 	data->str = NULL;
 	data->size = argc - 1;
 	data->stk1 = (long long *)malloc(sizeof(long long) * (data->size + 1));
@@ -44,8 +46,9 @@ void	check(t_data *data)
 	int	i;
 
 	i = -1;
-	while (data->instructions[++i])
-		game(data->instructions[i], data);
+	if (data->instructions)
+		while (data->instructions[++i])
+			game(data->instructions[i], data);
 	if (issorted(data->stk1) && (data->stk2)[0] == STOP)
 		cleanup(data, EXIT_SUCCESS);
 	else
@@ -74,10 +77,10 @@ void read_input(t_data *data)
 {
 	char *str;
 
-	str = "dowhile";
+	str = get_next_line(0);
 	while (str)
 	{
-		if (!is_input_valid(str) && ft_strncmp("dowhile", str, 10) && str)
+		if (!is_input_valid(str))
 		{
 			free(str);
 			cleanup(data, EXIT_FAILURE);
@@ -95,8 +98,11 @@ int	main(int argc, char **argv)
 {
 	t_data	*data;
 
+	if (argc < 2)
+		return (0);
 	data = (t_data *)malloc(sizeof(t_data));
 	init(data, argc, argv);
+	validate_checker(data, argc, argv);
 	read_input(data);
 	parse_input(data);
 	check(data);

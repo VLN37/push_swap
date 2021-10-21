@@ -16,15 +16,16 @@ BONUSSRCS	= checker.c \
 			  checker_parser.c \
 			  checker_game.c \
 			  checker_rules.c \
-			  checker_utils.c
+			  checker_utils.c \
+			  checker_checker.c
 
 
 #SOURCES		= $(addprefix $(SOURCES_DIR/, $(SRCS)))
 OBJ			= $(SRCS:.c=.o)
-BONUSOBJ	= $(BONUSSRCS:.c=.o)
+BOBJ		= $(BONUSSRCS:.c=.o)
 
 NAME		= push_swap
-BONUSNAME	= checker
+BNAME		= checker
 CC			= clang
 RM			= rm -f
 CFLAGS		= -Wall -Wextra -Werror
@@ -33,25 +34,27 @@ LINKS		= -I $(LIBFTPATH) -L $(LIBFTPATH) -lft
 
 all:		$(NAME)
 
-$(NAME):	push_swap.h $(OBJ)
+$(NAME):	$(OBJ) push_swap.h
 			make -C $(LIBFTPATH) all
 			$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LINKS)
 
-bonus:		all checker.h $(BONUSOBJ)
-			$(CC) $(CFLAGS) $(BONUSOBJ) -o $(BONUSNAME) $(LINKS)
+bonus:		$(BNAME)
 
-.c.o:		push_swap.h
+$(BNAME):	$(BOBJ) $(NAME) checker.h
+			$(CC) $(CFLAGS) $(BOBJ) -o $(BNAME) $(LINKS)
+
+.c.o:		push_swap.h checker.h
 			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 clean:
 			$(RM) $(OBJ)
-			$(RM) $(BONUSOBJ)
+			$(RM) $(BOBJ)
 			make -C $(LIBFTPATH) clean
 
 fclean:		clean
 			make -C $(LIBFTPATH) fclean
 			$(RM) $(NAME)
-			$(RM) $(BONUSNAME)
+			$(RM) $(BNAME)
 
 run:		$(OBJ)
 			make -C $(LIBFTPATH) all

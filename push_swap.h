@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/21 07:53:01 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/21 10:54:11 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <limits.h>
 
 typedef struct s_slice
 {
@@ -45,14 +46,6 @@ typedef struct s_data
 	int			iter;
 	t_slice		*slice;
 }	t_data;
-
-# ifndef INT_MAX
-#  define INT_MAX 2147483647
-# endif
-
-# ifndef INT_MIN
-#  define INT_MIN -2147483648
-# endif
 
 # ifndef DEBUG
 #  define DEBUG 0
