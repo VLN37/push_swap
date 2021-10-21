@@ -17,7 +17,8 @@ BONUSSRCS	= checker.c \
 			  checker_game.c \
 			  checker_rules.c \
 			  checker_utils.c \
-			  checker_checker.c
+			  checker_checker.c \
+			  checker_read.c
 
 
 #SOURCES		= $(addprefix $(SOURCES_DIR/, $(SRCS)))

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/21 05:24:49 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/21 11:50:07 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,5 @@ int	main(int argc, char **argv)
 	validation(argc, argv, data);
 	choose_algo(data);
 	ft_putstr_fd(data->res, 1);
-	// ft_putnbr_fd(data->iter, 1);
 	cleanup(data, EXIT_SUCCESS);
 }
