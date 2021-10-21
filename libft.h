@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/31 20:34:20 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/05 19:30:10 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/21 07:50:02 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,7 @@ char		*ftex_uitoa(unsigned int nbr);
 long long	ftex_atoll(const char *str);
 char		*ftex_uitoa_base(unsigned long nbr, char *base_to, unsigned long \
 basesize);
+char		*ftex_strmerge(char *old, char *append);
+
 
 #endif
