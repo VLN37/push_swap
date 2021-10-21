@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 19:09:22 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/21 07:53:01 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void		validation(int argc, char **argv, t_data *data);
 void		argvtoint(int argc, char **argv, t_data *data);
 void		game(char *str, t_data *data);
 void		cleanup(t_data *data, int error);
-void		reset(t_data *data);
 void		printstacks(t_data *data);
 long long	*selection_sort(long long *arr, int len);
 long long	stoplen(long long *stk);
