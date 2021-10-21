@@ -5,7 +5,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define STOP 2147483648
+# define STOP 2147483648
+# define EXIT_KO 2
 
 typedef struct s_data
 {
@@ -13,6 +14,7 @@ typedef struct s_data
 	long long	*stk2;
 	int			size;
 	char		*str;
+	char		**instructions;
 }	t_data;
 
 void		push(long long *src, long long *dest);
@@ -23,6 +25,7 @@ void		game(char *str, t_data *data);
 void		cleanup(t_data *data, int error);
 int			issorted(long long *stk);
 long long	stoplen(long long *stk);
+void		parse_input(t_data *data);
 void		argvtoint(int argc, char **argv, t_data *data);
 
 
