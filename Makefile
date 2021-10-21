@@ -12,12 +12,19 @@ SRCS		= push_swap.c \
 			  ps_sorting_long.c \
 			  ps_sorting_long2.c
 
+BONUSSRCS	= checker.c \
+			  checker_parser.c \
+			  checker_game.c \
+			  checker_rules.c \
+			  checker_utils.c
 
 
 #SOURCES		= $(addprefix $(SOURCES_DIR/, $(SRCS)))
 OBJ			= $(SRCS:.c=.o)
+BONUSOBJ	= $(BONUSSRCS:.c=.o)
 
 NAME		= push_swap
+BONUSNAME	= checker
 CC			= clang
 RM			= rm -f
 CFLAGS		= -Wall -Wextra -Werror
@@ -30,16 +37,21 @@ $(NAME):	push_swap.h $(OBJ)
 			make -C $(LIBFTPATH) all
 			$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LINKS)
 
+bonus:		all checker.h $(BONUSOBJ)
+			$(CC) $(CFLAGS) $(BONUSOBJ) -o $(BONUSNAME) $(LINKS)
+
 .c.o:		push_swap.h
 			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 clean:
 			$(RM) $(OBJ)
+			$(RM) $(BONUSOBJ)
 			make -C $(LIBFTPATH) clean
 
 fclean:		clean
 			make -C $(LIBFTPATH) fclean
 			$(RM) $(NAME)
+			$(RM) $(BONUSNAME)
 
 run:		$(OBJ)
 			make -C $(LIBFTPATH) all
