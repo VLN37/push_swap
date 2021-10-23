@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 16:29:37 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/21 07:52:27 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/22 21:29:10 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	game(char *str, t_data *data)
 		ft_putstr_fd("Error\n", 2);
 		cleanup(data, EXIT_FAILURE);
 	}
-	data->res = ftex_strmerge(data->res, str);
+	data->res = ftex_strmerge(data->res, ft_strdup(str));
 	data->iter++;
 	if (DEBUG)
 		printstacks(data);

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:54:08 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/21 11:57:47 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/10/22 21:24:21 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,7 @@ void	read_input(t_data *data)
 			cleanup(data, EXIT_FAILURE);
 		}
 		if (ft_strncmp("dowhile", str, 10) && str)
-		{
 			data->str = ftex_strmerge(data->str, str);
-			free(str);
-		}
 		str = get_next_line(0);
 	}
 }

@@ -1,4 +1,4 @@
 [submodule "libft"]
 	path = libft
 	url = https://github.com/VLN37/libft.git
-	branch = cleanlibft
+	branch = master
