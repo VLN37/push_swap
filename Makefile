@@ -1,7 +1,7 @@
 LIBFTPATH	= ./libft
 LIBFT		= $(LIBFTPATH)/libft.a
 
-SRCS		= push_swap.c \
+SRCFILES	= push_swap.c \
 			  ps_parser.c \
 			  ps_validation.c \
 			  ps_utils.c \
@@ -12,7 +12,7 @@ SRCS		= push_swap.c \
 			  ps_sorting_long.c \
 			  ps_sorting_long2.c
 
-BONUSSRCS	= checker.c \
+BONUSFILES	= checker.c \
 			  checker_parser.c \
 			  checker_game.c \
 			  checker_rules.c \
@@ -20,42 +20,56 @@ BONUSSRCS	= checker.c \
 			  checker_checker.c \
 			  checker_read.c
 
-
-#SOURCES		= $(addprefix $(SOURCES_DIR/, $(SRCS)))
-OBJ			= $(SRCS:.c=.o)
-BOBJ		= $(BONUSSRCS:.c=.o)
-
-NAME		= push_swap
-BNAME		= checker
 CC			= clang
 RM			= rm -f
 CFLAGS		= -Wall -Wextra -Werror
+SRCDIR		= src
+BONUSDIR	= srcbonus
+OBJDIR		= obj
+HEADER		= push_swap.h
+BONUSHEADER	= checker.h
+NAME		= push_swap
+BONUSNAME	= checker
+INCLUDES	= -I./libft -I./
 LINKS		= -I $(LIBFTPATH) -L $(LIBFTPATH) -lft
 
+SRC		= $(addprefix $(SRCDIR)/, $(SRCFILES))
+BONUSSRC= $(addprefix $(BONUSDIR)/, $(BONUSFILES))
+OBJ			= $(SRC:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
+BONUSOBJ	= $(BONUSSRC:$(BONUSDIR)/%.c=$(OBJDIR)/%.o)
 
-all:		$(NAME)
+all:		mkdir $(NAME)
 
-$(NAME):	$(OBJ) push_swap.h
+bonus:		$(BONUSNAME)
+
+$(NAME):	$(OBJ) $(HEADER)
 			make -C $(LIBFTPATH) all
 			$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LINKS)
 
-bonus:		$(BNAME)
+$(BONUSNAME):	$(BONUSOBJ) $(NAME) $(BONUSHEADER)
+			make -C $(LIBFTPATH) all
+			$(CC) $(CFLAGS) $(BONUSOBJ) -o $(BONUSNAME) $(LINKS)
 
-$(BNAME):	$(BOBJ) $(NAME) checker.h
-			$(CC) $(CFLAGS) $(BOBJ) -o $(BNAME) $(LINKS)
+$(OBJDIR)/%.o:	$(SRCDIR)/%.c $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
 
-.c.o:		push_swap.h checker.h
-			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+$(OBJDIR)/%.o:	$(BONUSDIR)/%.c $(BONUSHEADER)
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
 
 clean:
 			$(RM) $(OBJ)
-			$(RM) $(BOBJ)
+			$(RM) $(BONUSOBJ)
 			make -C $(LIBFTPATH) clean
 
 fclean:		clean
 			make -C $(LIBFTPATH) fclean
 			$(RM) $(NAME)
-			$(RM) $(BNAME)
+			$(RM) $(BONUSNAME)
+
+mkdir:
+			mkdir -p obj
+
+re:			fclean all
 
 run:		$(OBJ)
 			make -C $(LIBFTPATH) all
@@ -91,7 +105,5 @@ run100:		$(OBJ)
 run50:		$(OBJ)
 			make -C $(LIBFTPATH) all
 			$(CC) $(OBJ) -o $(NAME) $(LINKS) && ./$(NAME) 50 49 48 47 46 45 44 43 42 41 40 39 38 37 36 35 34 33 32 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1
-
-re:			fclean all
 
 .PHONY:		all clean fclean re run libft libftpath
