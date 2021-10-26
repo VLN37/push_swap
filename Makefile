@@ -59,6 +59,7 @@ $(OBJDIR)/%.o:	$(BONUSDIR)/%.c $(BONUSHEADER)
 clean:
 			$(RM) $(OBJ)
 			$(RM) $(BONUSOBJ)
+			rm -rf obj
 			make -C $(LIBFTPATH) clean
 
 fclean:		clean
