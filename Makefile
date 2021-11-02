@@ -40,7 +40,9 @@ BONUSOBJ	= $(BONUSSRC:$(BONUSDIR)/%.c=$(OBJDIR)/%.o)
 
 all:		mkdir $(NAME)
 
-bonus:		$(BONUSNAME)
+bonus:		mkdir $(BONUSNAME)
+
+complete: mkdir $(NAME) $(BONUSNAME)
 
 $(NAME):	$(OBJ) $(HEADER)
 			make -C $(LIBFTPATH) all
