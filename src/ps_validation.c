@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 12:56:20 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 17:48:33 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/11/04 21:44:40 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static int	isargvdigits(int argc, char **argv)
 	{
 		if (!ft_isdigit_str(argv[i++]))
 		{
-			ft_putstr_fd("Argv is not digits\n", 2);
 			ft_putstr_fd("Error\n", 2);
 			return (0);
 		}
@@ -51,7 +50,6 @@ static int	isarrayint(long long *arr, int argc)
 	{
 		if (arr[i] > (long long)INT_MAX || arr[i] < (long long)INT_MIN)
 		{
-			dprintf(3, "%lld\n", arr[i]);
 			ft_putstr_fd("Error\n", 2);
 			return (0);
 		}
@@ -73,7 +71,6 @@ int	isarrayunique(long long *arr)
 		{
 			if (arr[j] == arr[i])
 			{
-				ft_putstr_fd("Duplicate found\n", 2);
 				ft_putstr_fd("Error\n", 2);
 				return (0);
 			}

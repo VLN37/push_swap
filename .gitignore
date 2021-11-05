@@ -4,3 +4,7 @@ file*
 push_swap_visualizer/
 log.txt
 pyviz.py
+push_swap_gui/
+laiz.sh
+laiz_tester/
+log_error/

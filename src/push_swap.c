@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/21 11:50:07 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/11/04 21:44:19 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int	main(int argc, char **argv)
 {
 	t_data	*data;
 
+	if (argc < 2)
+		return (EXIT_FAILURE);
 	data = (t_data *)malloc(sizeof(t_data));
 	init(argc, argv, data);
 	validation(argc, argv, data);
