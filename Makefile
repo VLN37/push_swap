@@ -38,11 +38,11 @@ BONUSSRC= $(addprefix $(BONUSDIR)/, $(BONUSFILES))
 OBJ			= $(SRC:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 BONUSOBJ	= $(BONUSSRC:$(BONUSDIR)/%.c=$(OBJDIR)/%.o)
 
-all:		mkdir $(NAME)
+all:		$(OBJDIR) $(NAME)
 
-bonus:		mkdir $(BONUSNAME)
+bonus:		$(OBJDIR) $(BONUSNAME)
 
-complete: mkdir $(NAME) $(BONUSNAME)
+complete: $(OBJDIR) $(NAME) $(BONUSNAME)
 
 $(NAME):	$(OBJ) $(HEADER)
 			make -C $(LIBFTPATH) all
@@ -69,7 +69,7 @@ fclean:		clean
 			$(RM) $(NAME)
 			$(RM) $(BONUSNAME)
 
-mkdir:
+$(OBJDIR):
 			mkdir -p obj
 
 re:			fclean all
@@ -109,4 +109,4 @@ run50:		$(OBJ)
 			make -C $(LIBFTPATH) all
 			$(CC) $(OBJ) -o $(NAME) $(LINKS) && ./$(NAME) 50 49 48 47 46 45 44 43 42 41 40 39 38 37 36 35 34 33 32 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1
 
-.PHONY:		all clean fclean re run libft libftpath
+.PHONY:		all clean fclean re run
