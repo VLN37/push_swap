@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 10:44:17 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/21 11:18:03 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/12/03 11:25:15 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 static int	ft_isdigit_str(char *str)
 {
-	int	i;
-
-	i = 0;
 	if (*str == '-')
 		str++;
 	while (*str)
