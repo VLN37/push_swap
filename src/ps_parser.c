@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 12:57:35 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/21 11:09:10 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/12/06 14:39:28 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ void	argvtoint(int argc, char **argv, t_data *data)
 	data->backup[i] = data->stk1[i];
 	i = -1;
 	while (++i < data->size)
-		data->stk2[i] = STOP;
+		data->stk2[i] = (long long)STOP;
 }

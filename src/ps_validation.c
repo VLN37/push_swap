@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 12:56:20 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/12/03 11:24:55 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/12/06 16:14:03 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static int	ft_isdigit_str(char *str)
 		str++;
 	while (*str)
 		if (!ft_isdigit(*str++))
-			return (0);
-	return (1);
+			return (false);
+	return (true);
 }
 
 static int	isargvdigits(int argc, char **argv)
@@ -32,10 +32,10 @@ static int	isargvdigits(int argc, char **argv)
 		if (!ft_isdigit_str(argv[i++]))
 		{
 			ft_putstr_fd("Error\n", 2);
-			return (0);
+			return (false);
 		}
 	}
-	return (1);
+	return (true);
 }
 
 static int	isarrayint(long long *arr, int argc)
@@ -48,11 +48,11 @@ static int	isarrayint(long long *arr, int argc)
 		if (arr[i] > (long long)INT_MAX || arr[i] < (long long)INT_MIN)
 		{
 			ft_putstr_fd("Error\n", 2);
-			return (0);
+			return (false);
 		}
 		++i;
 	}
-	return (1);
+	return (true);
 }
 
 int	isarrayunique(long long *arr)
@@ -69,22 +69,22 @@ int	isarrayunique(long long *arr)
 			if (arr[j] == arr[i])
 			{
 				ft_putstr_fd("Error\n", 2);
-				return (0);
+				return (false);
 			}
 			++i;
 		}
 		++j;
 		i = j + 1;
 	}
-	return (1);
+	return (true);
 }
 
-void	validation(int argc, char **argv, t_data *data)
+t_bool	validation(int argc, char **argv, t_data *data)
 {
-	if (!isargvdigits(argc, argv))
+	if (isargvdigits(argc, argv) == false)
 		cleanup(data, EXIT_FAILURE);
-	if (!isarrayint(data->stk1, argc))
+	if (isarrayint(data->stk1, argc) == false)
 		cleanup(data, EXIT_FAILURE);
-	if (!isarrayunique(data->stk1))
+	if (isarrayunique(data->stk1) == false)
 		cleanup(data, EXIT_FAILURE);
 }
