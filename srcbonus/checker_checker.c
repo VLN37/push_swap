@@ -6,23 +6,23 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 10:44:17 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/12/03 11:25:15 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/12/06 12:10:41 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-static int	ft_isdigit_str(char *str)
+static t_bool	ft_isdigit_str(char *str)
 {
 	if (*str == '-')
 		str++;
 	while (*str)
 		if (!ft_isdigit(*str++))
-			return (0);
-	return (1);
+			return (false);
+	return (true);
 }
 
-static int	isargvdigits(int argc, char **argv)
+static t_bool	isargvdigits(int argc, char **argv)
 {
 	int	i;
 
@@ -30,12 +30,12 @@ static int	isargvdigits(int argc, char **argv)
 	while (i < argc)
 	{
 		if (!ft_isdigit_str(argv[i++]))
-			return (0);
+			return (false);
 	}
-	return (1);
+	return (true);
 }
 
-static int	isarrayint(long long *arr, int argc)
+static t_bool	isarrayint(long long *arr, int argc)
 {
 	int	i;
 
@@ -43,13 +43,13 @@ static int	isarrayint(long long *arr, int argc)
 	while (i < argc - 1)
 	{
 		if (arr[i] > (long long)INT_MAX || arr[i] < (long long)INT_MIN)
-			return (0);
+			return (false);
 		++i;
 	}
-	return (1);
+	return (true);
 }
 
-static int	isarrayunique(long long *arr)
+static t_bool	isarrayunique(long long *arr)
 {
 	int	i;
 	int	j;
@@ -61,13 +61,13 @@ static int	isarrayunique(long long *arr)
 		while (arr[i] != STOP)
 		{
 			if (arr[j] == arr[i])
-				return (0);
+				return (false);
 			++i;
 		}
 		++j;
 		i = j + 1;
 	}
-	return (1);
+	return (true);
 }
 
 void	validate_checker(t_data *data, int argc, char **argv)

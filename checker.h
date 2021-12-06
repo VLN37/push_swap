@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:58:08 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/21 11:58:17 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/12/06 12:10:56 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void		rotate(long long *stk);
 void		rev_rotate(long long *stk);
 void		game(char *str, t_data *data);
 void		cleanup(t_data *data, int error);
-int			issorted(long long *stk);
+t_bool		issorted(long long *stk);
 long long	stoplen(long long *stk);
 void		parse_input(t_data *data);
 void		argvtoint(int argc, char **argv, t_data *data);

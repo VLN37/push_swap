@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 06:46:12 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/12/06 12:03:49 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/12/06 12:19:27 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ long long	stoplen(long long *stk)
 	return (i);
 }
 
-int	issorted(long long *stk)
+t_bool	issorted(long long *stk)
 {
 	int	i;
 	int	j;
@@ -34,14 +34,14 @@ int	issorted(long long *stk)
 		while (stk[j] != STOP)
 		{
 			if (stk[i] > stk[j])
-				return (0);
+				return (false);
 			else
 				j++;
 		}
 		i++;
 		j = i + 1;
 	}
-	return (1);
+	return (true);
 }
 
 void	init(t_data *data, int argc, char **argv)
@@ -67,15 +67,14 @@ void	cleanup(t_data *data, int error)
 	free(data->stk2);
 	free(data->str);
 	free(data);
-
 	if (error == EXIT_KO)
 		ft_putstr_fd("KO\n", 1);
 	else if (error)
 	{
 		ft_putstr_fd("Error\n", 2);
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 	else
 		ft_putstr_fd("OK\n", 1);
-	exit(0);
+	exit(EXIT_SUCCESS);
 }
