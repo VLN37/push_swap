@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:54:08 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/22 21:24:21 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/12/06 12:07:13 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	read_input(t_data *data)
 	str = get_next_line(0);
 	while (str)
 	{
-		if (!is_input_valid(str))
+		if (is_input_valid(str) == NULL)
 		{
 			free(str);
 			cleanup(data, EXIT_FAILURE);

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 05:37:12 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/21 11:34:59 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/12/06 11:53:38 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	parse_input(t_data *data)
 {
 	if (!data->str)
 		return ;
-	data->str = ftex_str_replace_all(data->str, "\n", "123123");
-	data->str = ftex_str_replace_all(data->str, "123123", "\n$$$");
+	data->str = ftex_str_replace_all(data->str, "\n", "__0x69__");
+	data->str = ftex_str_replace_all(data->str, "__0x69__", "\n$$$");
 	data->instructions = ft_split(data->str, '$');
 }
 

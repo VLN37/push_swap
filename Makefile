@@ -20,7 +20,7 @@ BONUSFILES	= checker.c \
 			  checker_checker.c \
 			  checker_read.c
 
-CC			= gcc
+CC			= clang -g
 RM			= rm -f
 CFLAGS		= -Wall -Wextra -Werror
 SRCDIR		= src

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 06:46:12 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/21 11:51:13 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/12/06 12:03:49 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	issorted(long long *stk)
 void	init(t_data *data, int argc, char **argv)
 {
 	data->str = NULL;
+	data->instructions = NULL;
 	data->size = argc - 1;
 	data->stk1 = (long long *)malloc(sizeof(long long) * (data->size + 1));
 	data->stk2 = (long long *)malloc(sizeof(long long) * (data->size + 1));
@@ -55,10 +56,18 @@ void	init(t_data *data, int argc, char **argv)
 
 void	cleanup(t_data *data, int error)
 {
+	int	i;
+
+	i = -1;
+	if (data->instructions)
+		while (data->instructions[++i])
+			free(data->instructions[i]);
+	free(data->instructions);
 	free(data->stk1);
 	free(data->stk2);
 	free(data->str);
 	free(data);
+
 	if (error == EXIT_KO)
 		ft_putstr_fd("KO\n", 1);
 	else if (error)
