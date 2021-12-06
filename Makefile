@@ -38,6 +38,8 @@ BONUSSRC= $(addprefix $(BONUSDIR)/, $(BONUSFILES))
 OBJ			= $(SRC:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 BONUSOBJ	= $(BONUSSRC:$(BONUSDIR)/%.c=$(OBJDIR)/%.o)
 
+VPATH		= src srcbonus
+
 all:		$(OBJDIR) $(NAME)
 
 bonus:		$(OBJDIR) $(BONUSNAME)
@@ -47,20 +49,17 @@ complete: $(OBJDIR) $(NAME) $(BONUSNAME)
 $(NAME):	$(LIBFT) $(OBJ) $(HEADER)
 			$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LINKS)
 
-$(BONUSNAME):	$(LIBFT) $(BONUSOBJ) $(NAME) $(BONUSHEADER)
+$(BONUSNAME):	$(LIBFT) $(BONUSOBJ) $(BONUSHEADER)
 			$(CC) $(CFLAGS) $(BONUSOBJ) -o $(BONUSNAME) $(LINKS)
 
-$(OBJDIR)/%.o:	$(SRCDIR)/%.c $(HEADER)
-			$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
-
-$(OBJDIR)/%.o:	$(BONUSDIR)/%.c $(BONUSHEADER)
+$(OBJDIR)/%.o:	%.c
 			$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
 
 clean:
+			make -C $(LIBFTPATH) clean
 			$(RM) $(OBJ)
 			$(RM) $(BONUSOBJ)
 			rm -rf obj
-			make -C $(LIBFTPATH) clean
 
 fclean:		clean
 			make -C $(LIBFTPATH) fclean
@@ -90,4 +89,4 @@ runs:		$(OBJ)
 runc:
 			./push_swap $ARG | ./checker_linux $ARG
 
-.PHONY:		all clean fclean re run
+.PHONY:		all clean fclean re run runv runs runc
