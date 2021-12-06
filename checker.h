@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:58:08 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/12/06 12:10:56 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/12/06 12:25:10 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 # define CHECKER_H
 
 # include "libft.h"
-# include <stdlib.h>
-# include <stdio.h>
-# include <limits.h>
 
+# ifndef INT_MAX
+#  define INT_MAX 2147483647
+# endif
+# ifndef INT_MIN
+#  define INT_MIN -2147483648
+# endif
 # define STOP 2147483648
 # define EXIT_KO 2
 

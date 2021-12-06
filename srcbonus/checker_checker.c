@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 10:44:17 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/12/06 12:10:41 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/12/06 12:27:04 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,10 @@ static t_bool	isarrayunique(long long *arr)
 
 void	validate_checker(t_data *data, int argc, char **argv)
 {
-	if (!isargvdigits(argc, argv))
+	if (isargvdigits(argc, argv) == false)
 		cleanup(data, EXIT_FAILURE);
-	if (!isarrayint(data->stk1, argc))
+	if (isarrayint(data->stk1, argc) == false)
 		cleanup(data, EXIT_FAILURE);
-	if (!isarrayunique(data->stk1))
+	if (isarrayunique(data->stk1) == false)
 		cleanup(data, EXIT_FAILURE);
 }
