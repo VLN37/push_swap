@@ -6,13 +6,13 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 12:56:20 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/12/06 16:14:03 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/12/06 16:18:00 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_isdigit_str(char *str)
+static t_bool	ft_isdigit_str(char *str)
 {
 	if (*str == '-')
 		str++;
@@ -22,7 +22,7 @@ static int	ft_isdigit_str(char *str)
 	return (true);
 }
 
-static int	isargvdigits(int argc, char **argv)
+static t_bool	isargvdigits(int argc, char **argv)
 {
 	int	i;
 
@@ -38,7 +38,7 @@ static int	isargvdigits(int argc, char **argv)
 	return (true);
 }
 
-static int	isarrayint(long long *arr, int argc)
+static t_bool	isarrayint(long long *arr, int argc)
 {
 	int	i;
 
@@ -55,7 +55,7 @@ static int	isarrayint(long long *arr, int argc)
 	return (true);
 }
 
-int	isarrayunique(long long *arr)
+t_bool	isarrayunique(long long *arr)
 {
 	int	i;
 	int	j;
@@ -79,7 +79,7 @@ int	isarrayunique(long long *arr)
 	return (true);
 }
 
-t_bool	validation(int argc, char **argv, t_data *data)
+void	validation(int argc, char **argv, t_data *data)
 {
 	if (isargvdigits(argc, argv) == false)
 		cleanup(data, EXIT_FAILURE);

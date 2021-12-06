@@ -6,13 +6,13 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 00:14:36 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/21 07:51:51 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/12/06 16:19:55 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	issorted_rev(long long *stk)
+t_bool	issorted_rev(long long *stk)
 {
 	int	i;
 	int	j;
@@ -24,17 +24,17 @@ int	issorted_rev(long long *stk)
 		while (stk[j] != STOP)
 		{
 			if (stk[i] < stk[j])
-				return (0);
+				return (false);
 			else
 				j++;
 		}
 		i++;
 		j = i + 1;
 	}
-	return (1);
+	return (true);
 }
 
-int	issorted(long long *stk)
+t_bool	issorted(long long *stk)
 {
 	int	i;
 	int	j;
@@ -46,14 +46,14 @@ int	issorted(long long *stk)
 		while (stk[j] != STOP)
 		{
 			if (stk[i] > stk[j])
-				return (0);
+				return (false);
 			else
 				j++;
 		}
 		i++;
 		j = i + 1;
 	}
-	return (1);
+	return (true);
 }
 
 static long long	get_relative_min(long long *stk, long long curr)

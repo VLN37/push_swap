@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/12/06 12:26:16 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/12/06 16:20:04 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ long long	get_min(long long *stk);
 long long	get_median(long long *arr, int len);
 long long	get_max(long long *stk);
 int			get_direction(t_data *data, long long *stk);
-int			issorted(long long *stk);
-int			issorted_rev(long long *stk);
+t_bool		issorted(long long *stk);
+t_bool		issorted_rev(long long *stk);
 void		push_to_sorted(t_data *data, int from);
 void		initial_split(t_data *data, long long **from, long long len);
 
