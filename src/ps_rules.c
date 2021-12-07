@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 20:45:01 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 12:04:58 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/12/06 22:59:21 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	push(long long *src, long long *dest)
 	ft_memmove(&dest[1], dest, destlen * sizeof(long long));
 	dest[0] = src[0];
 	ft_memmove(src, &src[1], (srclen - 1) * sizeof(long long));
-	src[srclen - 1] = STOP;
+	src[srclen - 1] = (long long)STOP;
 }
 
 void	swap(long long *stk)

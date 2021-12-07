@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:19:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 19:04:00 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/12/06 23:01:01 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	algo_long(t_data *data)
 {
 	if (issorted(data->stk1))
 		return ;
-	data->slice->threshold[data->slice->i] = STOP;
+	data->slice->threshold[data->slice->i] = (long long)STOP;
 	initial_split(data, &data->stk1, stoplen(data->stk1));
 	while (1)
 	{

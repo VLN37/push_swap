@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 00:14:36 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/12/06 16:19:55 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/12/06 23:00:53 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static long long	get_relative_min(long long *stk, long long curr)
 {
 	long long	min;
 
-	min = STOP;
+	min = (long long)STOP;
 	while (*stk != STOP)
 	{
 		if (*stk < min && *stk > curr)
@@ -85,7 +85,7 @@ long long	*selection_sort(long long *arr, int len)
 		curr = get_relative_min(arr, curr);
 		ret[++i] = curr;
 	}
-	ret[++i] = STOP;
+	ret[++i] = (long long)STOP;
 	return (ret);
 }
 

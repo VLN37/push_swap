@@ -31,7 +31,7 @@ BONUSHEADER	= checker.h
 NAME		= push_swap
 BONUSNAME	= checker
 INCLUDES	= -I./libft -I./
-LINKS		= -I $(LIBFTPATH) -L $(LIBFTPATH) -lft
+LINKS		= -L $(LIBFTPATH) -lft
 
 SRC		= $(addprefix $(SRCDIR)/, $(SRCFILES))
 BONUSSRC= $(addprefix $(BONUSDIR)/, $(BONUSFILES))

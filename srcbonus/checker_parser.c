@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 05:37:12 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/12/06 11:53:38 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/12/06 23:00:41 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ void	argvtoint(int argc, char **argv, t_data *data)
 	data->stk1[i] = (long long)STOP;
 	i = -1;
 	while (++i < data->size)
-		data->stk2[i] = STOP;
+		data->stk2[i] = (long long)STOP;
 }
