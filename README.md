@@ -7,7 +7,9 @@ The bonus portion of the project tasks us to implement a checker program which v
 One of our fellow students at 42, [paulahemsi](https://github.com/paulahemsi) developed a [game](https://phemsi-a.itch.io/push-swap) where you can test-drive the available moves in a graphical environment. Give her a thumbs up if you like it!
 
 Here's a graphical representation of my own algorithm in action:
+
 ![gif](docs/push_swap.gif)
+
 Python script used to generate the visualizer was created by [o-reo's](https://github.com/o-reo) [push_swap visualizer](https://github.com/o-reo/push_swap_visualizer)
 
 - - -
