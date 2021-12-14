@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 21:01:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/10/20 18:55:35 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/12/07 19:40:40 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,5 @@ void	algo_short(t_data *data)
 			game("pb\n", data);
 		else
 			game("rr\n", data);
-		if (DEBUG)
-			printstacks(data);
 	}
 }

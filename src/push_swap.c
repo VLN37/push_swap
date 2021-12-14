@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:13:09 by jofelipe          #+#    #+#             */
-/*   Updated: 2021/11/04 21:44:19 by jofelipe         ###   ########.fr       */
+/*   Updated: 2021/12/07 19:40:35 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	*init(int argc, char **argv, t_data *data)
 {
-	dprintf(3, "%d\n", open("./log.txt", O_CREAT | O_RDWR, 0777));
 	data->slice = (t_slice *)malloc(sizeof(t_slice));
 	data->slice->i = 0;
 	data->sortedindex = 0;
@@ -30,22 +29,6 @@ void	*init(int argc, char **argv, t_data *data)
 	data->stkmin = get_min(data->stk1);
 	data->stkmax = get_max(data->stk1);
 	return (data);
-}
-
-void	printstacks(t_data *data)
-{
-	int	i;
-
-	i = 0;
-	dprintf(3, "stk a\n");
-	while (data->stk1[i] != STOP)
-		dprintf(3, "%3lld ", data->stk1[i++]);
-	dprintf(3, "\n");
-	i = 0;
-	dprintf(3, "stk b\n");
-	while (data->stk2[i] != STOP)
-		dprintf(3, "%3lld ", data->stk2[i++]);
-	dprintf(3, "\n\n");
 }
 
 void	choose_algo(t_data *data)
